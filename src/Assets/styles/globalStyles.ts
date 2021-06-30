@@ -7,11 +7,12 @@ const GlobalStyles = createGlobalStyle`
         --color-gray-2: #202020;
         --color-gray-3: #303030;
         --color-gray-4: #404040;
+        --color-gray-5: #707070;
         --color-red: #FF4848;
         --color-green: #00D84F;
         --color-white: #FFFFFF;
 
-        --max-size-container: 1100px;
+        --max-size-container: 1600px;
 
         background-color: var(--color-black);
         color: var(--color-white);
