@@ -8,8 +8,8 @@ import GlobalStyles from './Assets/styles/globalStyles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ResetCSS />
     <GlobalStyles />
+    <ResetCSS />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
