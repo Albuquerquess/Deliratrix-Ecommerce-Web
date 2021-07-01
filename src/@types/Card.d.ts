@@ -10,3 +10,8 @@ export interface CardProps {
 export interface StyledBoxProps {
     thumb?: string
 }
+
+export interface CardButtonProps {
+    label?: string,
+    to?: string
+}
