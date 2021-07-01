@@ -30,21 +30,26 @@ export const NavContainer = styled.div`
                 width: 52%;
                 display: flex;
                 align-items: center;
+                position: relative;
                 
                 
                 input#nav-input {
                     border: .1rem solid var(--color-white);
                     border-radius: 1rem;
-                    padding: .5rem;
+                    
                     width: 100%;
+                    
+                    padding: .5rem;
+                    padding-right: 3rem;
 
                     font-size: 1rem;
                 }
+                svg {
+                    position: absolute;
+                    right: 1rem;
+                }
+            }
             }
 
-            svg {
-                
-            }
-        }
       
 `;

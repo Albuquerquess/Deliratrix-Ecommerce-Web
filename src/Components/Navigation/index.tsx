@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Styles
 import { NavContainer } from './styles';
 
 // React-Router-Dom
@@ -8,7 +9,7 @@ import { Link } from 'react-router-dom'
 // Assets
 import Cart from '../../Assets/Components/Navigation/Cart'
 import DeliraStore from '../../Assets/Components/Navigation/Delirastore';
-import Lupa from '../../Assets/Components/Navigation/Lupa';
+import Lupa from '../../Assets/Components/Navigation/Lupa'
 
 const Navigation: React.FC = () => {
   return <NavContainer>
@@ -24,8 +25,8 @@ const Navigation: React.FC = () => {
         </ul>
         
         <label>
+          <Lupa />
           <input id="nav-input" type="text" placeholder="Digite aqui para pesquisar" />
-          {/* <Lupa /> */}
         </label>
         <Link to="#">
           <Cart />
