@@ -14,6 +14,7 @@ const Rate: React.FC<RateProps> = ({rate}) => {
         onClick: () => {},
         ratingValue: rate || 0,
         transition: true,
+        size: 30,
       };
 
   return <Rating {...rateConfig}/>
