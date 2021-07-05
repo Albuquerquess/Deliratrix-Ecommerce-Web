@@ -8,7 +8,7 @@ import { BoxContainer } from './styles';
 const Box: React.FC<BoxProps> = ({title, children}) => {
   return <BoxContainer>
     <h1>{title}</h1>
-    <main>
+    <main className="box-container">
         {children}
     </main>
   </BoxContainer>;
