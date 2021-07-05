@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import { FooterContainer } from './styles';
+import { FooterContainer, FooterCopy } from './styles';
 import DeliraStore from '../../Assets/Components/Footer/Delirastore'
 
 // Assets
@@ -10,7 +10,9 @@ import Instagram from '../../Assets/Components/Footer/Instagram'
 import Twitter from '../../Assets/Components/Footer/Twitter'
 
 const Footer: React.FC = () => {
-  return <FooterContainer>
+  return <>
+
+  <FooterContainer>
     <div id="wrapper">
       <section>
         <DeliraStore />
@@ -39,7 +41,18 @@ const Footer: React.FC = () => {
         </div>
       </section>
     </div>
-  </FooterContainer>  ;
+</FooterContainer>
+<FooterCopy>
+      <div id="copy-wrapper">
+        <span>2021 Copyright: <strong>Delirastore</strong></span>
+        <section>
+          <a href="http://www.google.com">Projeto: <strong>Jonathan Weslley</strong></a>
+          <a href="http://www.google.com">Desenvolvimento: <strong>Gustavo Albuquerque</strong></a>
+        </section>
+      </div>
+    </FooterCopy>
+  </>
+;
 }
 
 export default Footer;
