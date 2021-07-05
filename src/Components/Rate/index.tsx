@@ -6,7 +6,7 @@ import Rating from 'react-simple-star-rating'
 // @types
 import { RateProps } from '../../@types/Rate';
 
-const Rate: React.FC<RateProps> = ({rate}) => {
+const Rate: React.FC<RateProps> = ({rate, size}) => {
 
     const rateConfig = {
         fillColor:'#FF4848',
@@ -14,7 +14,7 @@ const Rate: React.FC<RateProps> = ({rate}) => {
         onClick: () => {},
         ratingValue: rate || 0,
         transition: true,
-        size: 30,
+        size: size,
       };
 
   return <Rating {...rateConfig}/>
