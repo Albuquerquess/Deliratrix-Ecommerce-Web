@@ -20,10 +20,23 @@ const GlobalStyles = createGlobalStyle`
 
         font-size: 62.5%;
         font-family: 'Ubuntu', sans-serif;
-
-        overflow-x: hidden;
     }
 
+    body {
+        font-size: 1.6rem;
+        line-height: 1.2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow-x: hidden;
+
+        .text-gray {
+            color: var( --color-gray-3)
+        }
+       
+       }
     body > div#root > div.App {    
         display: flex;
         flex-direction: column;
@@ -31,18 +44,6 @@ const GlobalStyles = createGlobalStyle`
         justify-content: center;
     }
 
-    body {
-      font-size: 1.6rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        div.full-width {
-            width: 100%
-        }
-
-    }
 `
 
 export default GlobalStyles
