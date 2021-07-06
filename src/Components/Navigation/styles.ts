@@ -5,6 +5,7 @@ import breakpoints from '../../Assets/styles/breakpoints';
 
 // @types
 import { StyledSidebarProps } from '../../@types/Navigation'
+import zIndex from '../../Assets/styles/zIndex';
 
 export const NavContainer = styled.nav`
     display: flex;
@@ -15,12 +16,17 @@ export const NavContainer = styled.nav`
     max-width: var(--max-size-container);
     padding: 1rem 0;
 
+    z-index: ${zIndex.topAll};
+
     svg#sidebar-open {
         display: none;
     }
 
         div#logo-container {
             width: 50%;
+            svg {
+                width: 14rem;
+            }
         }
         main {
             display: flex;
@@ -35,31 +41,12 @@ export const NavContainer = styled.nav`
                 width: 40%;
 
                 font-size: 1.4rem;
-            }
-           
-            label { 
-                width: 52%;
-                display: flex;
-                align-items: center;
-                position: relative;
-                
-                
-                input#nav-input {
-                    border: .1rem solid var(--color-white);
-                    border-radius: 1rem;
-                    
-                    width: 100%;
-                    
-                    padding: .5rem;
-                    padding-right: 3rem;
+                }
 
-                    font-size: 1rem;
-                }
-                svg {
-                    position: absolute;
-                    right: 1rem;
-                    }
-                }
+            label#search-input {
+                width: 52%;
+            }
+
             }
 
     @media (max-width: ${breakpoints.tablet}) {
@@ -68,6 +55,10 @@ export const NavContainer = styled.nav`
             div#logo-container {
                 width:initial;
                 order: 2;
+
+                svg {
+                    width: 10rem;
+                }
             }
             justify-content: space-between;
         
@@ -79,10 +70,12 @@ export const NavContainer = styled.nav`
                     ul {
                         display: none
                     }
-                    label {
-                        display: none
+
+                    label#search-input {
+                        display: none;
                     }
                 }
+                
             svg#sidebar-open {
                 display: block;
                 order: 3;
@@ -116,7 +109,7 @@ export const SidebarContainer = styled.div<StyledSidebarProps>`
         align-items: center;
         justify-content: space-between;
 
-        width: 90%;
+        width: 100%;
         height: 90%;
 
         nav {
@@ -130,13 +123,15 @@ export const SidebarContainer = styled.div<StyledSidebarProps>`
                 height: auto;
 
                 cursor: pointer;
+                margin-right: 1rem;
             }
         }
 
         ul  {
             width: 80%;
             font-size: 1.6rem;
-            font-weight: bold;
+            font-weight: 400;
+            margin-bottom: 5rem;
 
             li {
                 margin-top: 1rem;

@@ -1,15 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 // Styles
 import { NavContainer } from './styles';
 
-// React-Router-Dom
-import { Link } from 'react-router-dom'
+// components
+import Search from '../Search'
 
 // Assets
 import Cart from '../../Assets/Components/Navigation/Cart'
 import DeliraStore from '../../Assets/Components/Navigation/Delirastore';
-import Lupa from '../../Assets/Components/Navigation/Lupa'
 
 // Sidebar
   // Assets
@@ -18,8 +18,8 @@ import SidebarOpen from '../../Assets/Components/Navigation/Sidebar/SidebarOpen'
 import Sidebar from './Sidebar'
 
 const Navigation: React.FC = () => {
-
   const [isOpen, setIsOpen] = React.useState(false)
+  const [search, setSearch] = React.useState('')
   
   return <NavContainer>
       <Sidebar isOpen={isOpen} handleClickFunction={setIsOpen} />
@@ -36,10 +36,7 @@ const Navigation: React.FC = () => {
           <li><Link to="#" >Serviços</Link></li>
         </ul>
         
-        <label>
-          <Lupa />
-          <input id="nav-input" type="text" placeholder="Digite aqui para pesquisar" />
-        </label>
+       <Search value={search} setValue={setSearch} />
         <Link to="#">
           <Cart />
         </Link>
