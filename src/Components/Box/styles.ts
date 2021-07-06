@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+// breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 
 export const BoxContainer = styled.div`
@@ -20,24 +22,21 @@ export const BoxContainer = styled.div`
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: repeat(2, 400px);
-        
         grid-column-gap: 1rem;
         grid-row-gap: 1rem;
-        
     }
 
     @media screen and (max-width: ${breakpoints.tablet}) {
-
-        h1 {
-            font-size: 2rem;
+        
+        h1 {    
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
+
         main.box-container {
             grid-template-columns: 1fr;
-            grid-template-rows: 250px;
-            grid-column-gap: 0;
-            grid-row-gap: 1rem;
-
-
+            grid-template-rows: 200px;
         }
     }
+
 `;
