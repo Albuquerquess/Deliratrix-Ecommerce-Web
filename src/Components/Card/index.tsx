@@ -7,11 +7,18 @@ import { CardProps } from '../../@types/Card';
 import Rate from '../Rate'
 import Button from '../Button';
 
+// Utils
+import getWindowDimensions from '../../Utils/getWindowDimension'
+
 // Styles
 import { CardContainer } from './styles';
+import breakpoints from '../../Assets/styles/breakpoints';
 
 const Card: React.FC<CardProps> = ({title, description, image, value, rate}) => {
   
+  const widthScreen = getWindowDimensions().width 
+  const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
+
   return <CardContainer thumb={''}>
       <main>
         <section>
@@ -20,7 +27,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate}) => 
         <section>
           <h2>{title}</h2>
           <div className="rate">
-            <Rate rate={rate}/>
+            <Rate rate={rate} size={size}/>
           </div>
           <p>{description}</p>
           <footer>

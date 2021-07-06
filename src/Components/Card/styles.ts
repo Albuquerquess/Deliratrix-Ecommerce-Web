@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 // @types
 import { StyledBoxProps } from '../../@types/Card'
+import breakpoints from '../../Assets/styles/breakpoints';
 
 export const CardContainer = styled.div<StyledBoxProps>`
     background-color: var(--color-gray-2);
@@ -60,10 +61,6 @@ export const CardContainer = styled.div<StyledBoxProps>`
                 font-weight: bold
             }
 
-            div.className {
-                margin: 1rem 0;
-            }
-
             p {
                 height: 6rem;
                 width: 100%;
@@ -73,11 +70,13 @@ export const CardContainer = styled.div<StyledBoxProps>`
             }
 
             footer {
-                margin: 1rem 0;
-                display: flex;
                 width: 100%;
+                
+                display: flex;
                 justify-content: space-between;
                 align-items: center;
+                
+                margin: 1rem 0;
 
                 span {
                     font-size: 1.8rem;
@@ -85,6 +84,31 @@ export const CardContainer = styled.div<StyledBoxProps>`
                 }
             }
 
+        }
+    }
+
+    @media screen and (max-width: ${breakpoints.tablet}) {
+        height: 200px;
+        main {
+            width: 95%;
+            height: 95%;
+
+            section:last-child {
+                h2 {
+                    font-size: 1.6rem;
+                }
+                p {
+                    font-size: 12px;
+                    height: 3.7rem;
+                }
+
+                footer {
+                    margin: 0;
+                    span {
+                        font-size: 15px;
+                    }
+                }
+            }
         }
     }
 

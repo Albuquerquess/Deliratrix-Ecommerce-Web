@@ -6,10 +6,8 @@ import { StyledLabel } from './styles';
 
 const Button: React.FC<ButtonProps> = ({label, to, handleClicked}) => {
   return <StyledLabel>
-      <Link to={to || '#'} >
-          <button onClick={handleClicked}>
+      <Link to={to || '#'} onClick={handleClicked}> 
         {label || 'Clique aqui'}
-        </button>
       </Link>
   </StyledLabel>;
 }

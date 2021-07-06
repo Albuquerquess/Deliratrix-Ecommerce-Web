@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import breakpoints from '../../Assets/styles/breakpoints';
 
 export const CardButtonContainer = styled.div`
     background-color: var(--color-gray-2);
@@ -33,6 +34,19 @@ export const CardButtonContainer = styled.div`
             height: auto;
         }
 
+    }
+
+    @media screen and (max-width: ${breakpoints.tablet}) {
+        height: 200px;
+        a {
+            span {
+                font-size: 1.4rem;
+            }
+            
+            svg {
+                width: 3.5rem;
+            }
+        }
     }
 
 `;
