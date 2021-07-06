@@ -20,7 +20,7 @@ export const FooterContainer = styled.footer`
     justify-content: space-between;
 
     section:first-child {
-      width: 15%;
+      width: 18%;
       
       
       display: flex;
@@ -138,7 +138,7 @@ export const FooterCopy = styled.div`
   
 
   div#copy-wrapper {
-    max-width: var(--max-size-container);
+    width: var(--max-size-container);
     height: 100%;
 
     display: flex;
@@ -152,8 +152,12 @@ export const FooterCopy = styled.div`
     
     div#copy-wrapper {
       flex-direction: column;
+      width: 100%;
 
-        
+      section:first-child {
+        width: 80%;
+      }
+
       span, section > a:first-child {
         margin-bottom: 1.4rem;
       }
@@ -163,6 +167,8 @@ export const FooterCopy = styled.div`
         flex-direction: column;
         align-items: center;
       }
+
+      
     }
 
   }
