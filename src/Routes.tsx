@@ -12,9 +12,9 @@ import Home from './Pages/Home';
 const Routes: React.FC = () => {
   return <BrowserRouter>
     <BrowserRouter>
-      <Navigation />
       <Switch>
         <Container>
+          <Navigation />
           <Route exact path="/" component={Home}/>
         </Container>
       </Switch>
