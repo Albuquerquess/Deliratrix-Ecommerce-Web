@@ -33,7 +33,7 @@ export const SearchContainer = styled.label<StyleSearchProps>`
         right: 1rem;
         }
 
-    @media screen and (min-width: ${breakpoints.desktop}) {
-        display: ${props => props.onlyMobile ? 'none' : 'fle'};
+    @media screen and (min-width: ${breakpoints.tablet}) {
+        display: ${props => props.onlyMobile ? 'none' : 'flex'};
     }
 `;
