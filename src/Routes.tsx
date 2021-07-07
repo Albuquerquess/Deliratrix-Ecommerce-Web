@@ -8,6 +8,7 @@ import Footer from './Components/Footer';
 
 // Pages
 import Home from './Pages/Home';
+import Content from './Pages/Contents';
 
 const Routes: React.FC = () => {
   return <BrowserRouter>
@@ -16,6 +17,7 @@ const Routes: React.FC = () => {
         <Container>
           <Navigation />
           <Route exact path="/" component={Home}/>
+          <Route exact path="/explorar/:type" component={Content}/>
         </Container>
       </Switch>
       <Footer />
