@@ -22,7 +22,7 @@ export const NavContainer = styled.nav`
         display: none;
     }
 
-        div#logo-container {
+        a#logo-container {
             width: 50%;
             svg {
                 width: 14rem;
@@ -52,7 +52,7 @@ export const NavContainer = styled.nav`
     @media (max-width: ${breakpoints.tablet}) {
 
         & {
-            div#logo-container {
+            a#logo-container {
                 width:initial;
                 order: 2;
 

@@ -25,9 +25,9 @@ const Navigation: React.FC = () => {
       <Sidebar isOpen={isOpen} handleClickFunction={setIsOpen} />
       <SidebarOpen clickFunction={setIsOpen} />
 
-      <div id="logo-container">
+      <Link to='/' id="logo-container">
         <DeliraStore />
-      </div>
+      </Link>
 
       <main>
         <ul>
