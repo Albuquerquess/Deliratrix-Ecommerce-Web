@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-size: 1.6rem;
-        line-height: 1.2rem;
+        line-height: 17px;
 
         display: flex;
         align-items: center;
@@ -34,6 +34,10 @@ const GlobalStyles = createGlobalStyle`
 
         .text-gray {
             color: var( --color-gray-3)
+        }
+
+        p {
+            letter-spacing: .1rem;
         }
        
        }
