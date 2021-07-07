@@ -26,7 +26,7 @@ const Contents: React.FC = () => {
     console.log(params)
   }, [params])
   return <>
-      <Search value={search} setValue={setSearch} />
+      <Search value={search} setValue={setSearch} onlyMobile/>
       <Box title={'Produtos'}>
         <Card
           title={'Titulo'}
