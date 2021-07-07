@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 // Pages
 import Home from './Pages/Home';
 import Content from './Pages/Contents';
+import Sobre from './Pages/About';
 
 const Routes: React.FC = () => {
   return <BrowserRouter>
@@ -18,6 +19,7 @@ const Routes: React.FC = () => {
           <Navigation />
           <Route exact path="/" component={Home}/>
           <Route exact path="/explorar/:type" component={Content}/>
+          <Route exact path="/sobre" component={Sobre}/>
         </Container>
       </Switch>
       <Footer />
