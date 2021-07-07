@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate}) => 
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
 
-  return <CardContainer thumb={''}>
+  return <CardContainer thumb={image}>
       <main>
         <section>
           <div className="thumb"></div>
