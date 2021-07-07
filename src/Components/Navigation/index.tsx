@@ -36,7 +36,7 @@ const Navigation: React.FC = () => {
           <li><Link to="#" >Serviços</Link></li>
         </ul>
         
-       <Search value={search} setValue={setSearch} />
+       <Search value={search} setValue={setSearch} redirectTo={`/search`}/>
         <Link to="#">
           <Cart />
         </Link>
