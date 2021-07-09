@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate, type
           <p>{description}</p>
           <footer>
             <span>{value}</span>
-            <Button to={`/visualizar/${type}/${category}/${id}`} label="Comprar!"/>
+            <Button to={`/visualizar/${id}`} label="Comprar!"/>
           </footer>
         </section>
       </main>
