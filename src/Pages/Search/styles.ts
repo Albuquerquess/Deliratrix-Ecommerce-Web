@@ -105,7 +105,8 @@ export const SearchContainer = styled.div<styledSearchParams>`
                 span {
                     display: none;
                 }
-                svg {
+                svg#sort-icon {
+                    display: block;
                     cursor: pointer;
                 }
 
