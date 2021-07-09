@@ -10,7 +10,7 @@ import Lupa from '../../Assets/Components/Navigation/Lupa'
 // @types
 import { SearchProps } from '../../@types/Search';
 
-const Search: React.FC<SearchProps> = ({ onlyMobile, value, setValue, redirectTo }) => {
+const SearchInput: React.FC<SearchProps> = ({ onlyMobile, value, setValue, redirectTo }) => {
   const location = useHistory()
 
   function handleKeyPress(e: React.KeyboardEvent<HTMLLabelElement>) {
@@ -28,4 +28,4 @@ const Search: React.FC<SearchProps> = ({ onlyMobile, value, setValue, redirectTo
   </SearchContainer>;
 }
 
-export default Search;
+export default SearchInput;

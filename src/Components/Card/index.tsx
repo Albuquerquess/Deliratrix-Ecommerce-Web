@@ -14,8 +14,8 @@ import getWindowDimensions from '../../Utils/getWindowDimension'
 import { CardContainer } from './styles';
 import breakpoints from '../../Assets/styles/breakpoints';
 
-const Card: React.FC<CardProps> = ({title, description, image, value, rate}) => {
-  
+const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, prices}) => {
+
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
 
@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate}) => 
           <p>{description}</p>
           <footer>
             <span>{value}</span>
-            <Button to="#" label="Comprar!"/>
+            <Button to={`/visualizar/${type}/${category}/${id}`} label="Comprar!"/>
           </footer>
         </section>
       </main>

@@ -6,12 +6,12 @@ import { AboutContainer } from './styles';
 import bannerUrl from '../../Assets/Components/About/banner'
 
 // Components
-import Search from '../../Components/Search'
+import SearchInput from '../../Components/SearchInput'
 
 const About: React.FC = () => {
   const [search, setSearch] = React.useState('')
   return <AboutContainer>
-    <Search value={search} setValue={setSearch} onlyMobile redirectTo={`/search/${search}`}/>
+    <SearchInput value={search} setValue={setSearch} onlyMobile redirectTo={`/search/${search}`}/>
     <div id="about-wrapper">
     <h1>Sobre a DeliraStore</h1>
     <section>

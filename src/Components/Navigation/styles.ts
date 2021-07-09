@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 // @types
-import { StyledSidebarProps } from '../../@types/Navigation'
+import { StyledSidebarProps, StyledNavigationProps } from '../../@types/Navigation'
 import zIndex from '../../Assets/styles/zIndex';
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.nav<StyledNavigationProps>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,23 +31,31 @@ export const NavContainer = styled.nav`
         main {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
 
             width: 50%;
 
             ul {
-                display: flex;
-                justify-content: space-between;
                 width: 40%;
 
+                display: flex;
+                justify-content: space-between;
+
                 font-size: 1.4rem;
+                
+                margin-right: ${props => props.showInputSearch ? '1rem' : '0'};
                 }
 
             label#search-input {
+                display: ${props => props.showInputSearch ? 'flex' : 'none'};
                 width: 52%;
             }
 
             }
+
+        main > a {
+            margin-left: 1rem;
+        }
 
     @media (max-width: ${breakpoints.tablet}) {
 

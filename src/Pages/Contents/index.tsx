@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import { paramsProps } from '../../@types/Content'
 
 // components
-import Search from '../../Components/Search';
+import SearchInput from '../../Components/SearchInput';
 import Box from '../../Components/Box'
 import Card from '../../Components/Card'
 
@@ -26,7 +26,7 @@ const Contents: React.FC = () => {
     console.log(params)
   }, [params])
   return <>
-      <Search value={search} setValue={setSearch} onlyMobile/>
+      <SearchInput value={search} setValue={setSearch} onlyMobile/>
       <Box title={'Produtos'}>
         <Card
           title={'Titulo'}

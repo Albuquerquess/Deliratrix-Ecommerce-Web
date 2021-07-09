@@ -3,7 +3,11 @@ export interface CardProps {
     rate?: number;
     description?: string;
     value?: string;
-    image?: string
+    image?: string;
+    id?: number;
+    type?: string;
+    category?: string;
+    prices?: Object[];
 
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 // Styles
 import { NavContainer } from './styles';
 
 // components
-import Search from '../Search'
+import SearchInput from '../SearchInput'
 
 // Assets
 import Cart from '../../Assets/Components/Navigation/Cart'
@@ -20,8 +20,11 @@ import Sidebar from './Sidebar'
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const [search, setSearch] = React.useState('')
+
+  const location = useLocation();
+  const currentLocation = location.pathname.split('/')[1]
   
-  return <NavContainer>
+  return <NavContainer showInputSearch={currentLocation !== 'search'}>
       <Sidebar isOpen={isOpen} handleClickFunction={setIsOpen} />
       <SidebarOpen clickFunction={setIsOpen} />
 
@@ -36,7 +39,7 @@ const Navigation: React.FC = () => {
           <li><Link to="/explorar/servicos" >Serviços</Link></li>
         </ul>
         
-       <Search value={search} setValue={setSearch} redirectTo={`/search`}/>
+       <SearchInput value={search} setValue={setSearch} redirectTo={`/search`} />
         <Link to="#">
           <Cart />
         </Link>
