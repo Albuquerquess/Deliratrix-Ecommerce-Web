@@ -21,10 +21,10 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate, type
 
   return <CardContainer thumb={image}>
       <main>
-        <section>
+        <section className="card-thumb-container">
           <div className="thumb"></div>
         </section>
-        <section>
+        <section className="card-desc-container">
           <h2>{title}</h2>
           <div className="rate">
             <Rate rate={rate} size={size}/>

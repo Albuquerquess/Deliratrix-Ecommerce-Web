@@ -24,7 +24,7 @@ export const CardContainer = styled.div<StyledBoxProps>`
         height: 85%;
         width: 90%;
 
-        section:first-child {
+        section.card-thumb-container {
             width: 45%;
             height: 90%;
             background-color: var(--color-gray-4);
@@ -48,7 +48,7 @@ export const CardContainer = styled.div<StyledBoxProps>`
             }
         }
 
-        section:last-child {
+        section.card-desc-container {
             width: 50%;
             height: 90%;
 
