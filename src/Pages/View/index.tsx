@@ -37,17 +37,17 @@ const View: React.FC = () => {
               <h2>Selecione uma opção:</h2>
               <li>
                 <label htmlFor="price_1" onClick={() => setInputClick('price_1')}>
-                  <div className={`radio ${inputClick == 'price_1' && 'input-radio-clicked'}`} >1</div>
+                  <div className={`radio ${inputClick === 'price_1' && 'input-radio-clicked'}`} >1</div>
                   <input type="radio" name="price" id="price_1" value="price1" />Tipo 01</label>
               </li>
               <li>
                 <label htmlFor="price_2" onClick={() => setInputClick('price_2')}>
-                  <div className={`radio ${inputClick == 'price_2' && 'input-radio-clicked'}`}>2</div>
+                  <div className={`radio ${inputClick === 'price_2' && 'input-radio-clicked'}`}>2</div>
                   <input type="radio" name="price" id="price_2" value="price2" />Tipo 01</label>
               </li>
               <li>
                 <label htmlFor="price_3" onClick={() => setInputClick('price_3')}>
-                  <div className={`radio ${inputClick == 'price_3' && 'input-radio-clicked'}`}>3</div>
+                  <div className={`radio ${inputClick === 'price_3' && 'input-radio-clicked'}`}>3</div>
                   <input type="radio" name="price" id="price_3" value="price3" />Tipo 01</label>
               </li>
             </ol>
