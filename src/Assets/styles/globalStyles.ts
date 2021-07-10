@@ -32,6 +32,11 @@ const GlobalStyles = createGlobalStyle`
 
         overflow-x: hidden;
 
+        /* input radio clicked class */
+        .input-radio-clicked {
+            background: var(--color-red) !important;
+        }
+
         .text-gray {
             color: var( --color-gray-3)
         }
