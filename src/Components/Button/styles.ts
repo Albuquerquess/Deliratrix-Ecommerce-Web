@@ -1,16 +1,24 @@
 import styled from 'styled-components';
+
+// breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 
-export const StyledLabel = styled.label`
+// @types
+import { StyledButtonProps } from '../../@types/Button';
+
+export const StyledLabel = styled.label<StyledButtonProps>`
     width: 100%;
     max-width: 12rem;
     height: 3rem;
-    background: var(--color-green);
+
+    background: ${props => props.outline ? 'none' : 'var(--color-green)'};
+    
     border-radius: .5rem;
-    color: var(--color-black);
+    border: ${props => props.outline ? '0.2rem solid var(--color-gray-5)' : 'none'};
+    
     font-weight: bold;
     font-size: 1.6rem;
-
+    
     overflow: hidden;
 
     display: flex;
@@ -25,12 +33,12 @@ export const StyledLabel = styled.label`
 
         height: 3rem;
 
-        background: var(--color-green);
         border-radius: .5rem;
 
-        color: var(--color-black);
-        font-weight: bold;
+        color: ${props => props.outline ? 'var(--color-gray-5)' : 'var(--color-black)'};
+        font-weight: ${props => props.outline ? 'lighter' : 'bold'};
         font-size: 1.6rem;
+        
         cursor: pointer;
 
     }

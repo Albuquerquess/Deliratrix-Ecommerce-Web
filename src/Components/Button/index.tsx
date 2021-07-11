@@ -4,8 +4,8 @@ import { ButtonProps } from '../../@types/Button';
 
 import { StyledLabel } from './styles';
 
-const Button: React.FC<ButtonProps> = ({label, to, handleClicked}) => {
-  return <StyledLabel>
+const Button: React.FC<ButtonProps> = ({label, to, handleClicked, outline}) => {
+  return <StyledLabel outline={outline}>
       <Link to={to || '#'} onClick={handleClicked}> 
         {label || 'Clique aqui'}
       </Link>
