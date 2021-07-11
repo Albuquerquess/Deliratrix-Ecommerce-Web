@@ -8,14 +8,18 @@ export interface CardProps {
     type?: string;
     category?: string;
     prices?: Object[];
-
+    removeDisplayed?: boolean;
+    onCartPage?: boolean;
+    handleRemove?: () => void;
 }
-
 export interface StyledBoxProps {
-    thumb?: string
+    thumb?: string;
+    onCartPage?: boolean;
 }
-
 export interface CardButtonProps {
     label?: string,
     to?: string
+}
+export interface StyledCardRemoveProps {
+    removeDisplayed?: boolean;
 }

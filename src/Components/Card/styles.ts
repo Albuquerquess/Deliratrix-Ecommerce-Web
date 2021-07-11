@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 // @types
-import { StyledBoxProps } from '../../@types/Card'
+import { StyledBoxProps, StyledCardRemoveProps } from '../../@types/Card'
+
+// breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 
 export const CardContainer = styled.div<StyledBoxProps>`
@@ -73,7 +75,7 @@ export const CardContainer = styled.div<StyledBoxProps>`
                 width: 100%;
                 
                 display: flex;
-                justify-content: space-between;
+                justify-content: ${props => props.onCartPage ? 'flex-end' : 'space-between'} ;
                 align-items: center;
                 
                 margin: 1rem 0;
@@ -81,6 +83,11 @@ export const CardContainer = styled.div<StyledBoxProps>`
                 span {
                     font-size: 1.8rem;
                     font-weight: bold;
+                }
+
+                /* Button */
+                label {
+                    display: ${props => props.onCartPage ? 'none' : 'flex'};
                 }
             }
 
@@ -113,3 +120,36 @@ export const CardContainer = styled.div<StyledBoxProps>`
     }
 
 `;
+
+export const CardRemove = styled.footer<StyledCardRemoveProps>`
+    display: ${props => props.removeDisplayed ? 'block' : 'none'};
+
+    width: 100%;
+    height: 3rem;
+
+    margin-bottom: 1rem;
+    
+    border: 1px solid var(--color-gray-5);
+    border-radius: .5rem;
+    
+    font-size: 1.5rem;
+
+    cursor: pointer;
+
+    div {
+        color: var(--color-gray-5);
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    @media screen and (max-width: ${breakpoints.tablet}) {
+        height: 2rem;
+        font-size: 1rem;
+    }
+
+`

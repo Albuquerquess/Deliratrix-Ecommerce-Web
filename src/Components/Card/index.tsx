@@ -11,15 +11,18 @@ import Button from '../Button';
 import getWindowDimensions from '../../Utils/getWindowDimension'
 
 // Styles
-import { CardContainer } from './styles';
+import { CardContainer, CardRemove } from './styles';
+
+// breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 
-const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, prices}) => {
+const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, prices, removeDisplayed, handleRemove, onCartPage}) => {
 
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
 
-  return <CardContainer thumb={image}>
+  return <>
+    <CardContainer thumb={image} onCartPage={onCartPage}>
       <main>
         <section className="card-thumb-container">
           <div className="thumb"></div>
@@ -36,7 +39,13 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate, type
           </footer>
         </section>
       </main>
-  </CardContainer>;
+  </CardContainer>
+  <CardRemove removeDisplayed={removeDisplayed}>
+    <div onClick={() => handleRemove && handleRemove()}>
+      Remover
+    </div>
+  </CardRemove>
+  </>;
 }
 
 export default Card;
