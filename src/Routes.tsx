@@ -12,6 +12,7 @@ import Content from './Pages/Contents';
 import Sobre from './Pages/About';
 import Search from './Pages/Search';
 import View from './Pages/View';
+import Cart from './Pages/Cart';
 
 const Routes: React.FC = () => {
   return <BrowserRouter>
@@ -23,6 +24,7 @@ const Routes: React.FC = () => {
           <Route exact path="/explorar/:type" component={Content}/>
           <Route exact path="/search/:search" component={Search}/>
           <Route exact path="/visualizar/:id" component={View}/>
+          <Route exact path="/cart/:id" component={Cart}/>
           <Route exact path="/sobre" component={Sobre}/>
         </Container>
       </Switch>
