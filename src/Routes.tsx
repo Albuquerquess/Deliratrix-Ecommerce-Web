@@ -27,7 +27,7 @@ const Routes: React.FC = () => {
           <Route exact path="/explorar/:type" component={Content}/>
           <Route exact path="/search/:search" component={Search}/>
           <Route exact path="/visualizar/:id" component={View}/>
-          <Route exact path="/cart/:id" component={Cart}/>
+          <Route exact path="/carrinho/:id" component={Cart}/>
           <Route exact path="/identificacao" component={Identify}/>
           <Route exact path="/pagamento" component={Payment}/>
           <Route exact path="/pagamento/confirmacao/:txid" component={Confirmation}/>
