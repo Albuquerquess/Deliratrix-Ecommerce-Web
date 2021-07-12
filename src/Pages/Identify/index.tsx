@@ -66,7 +66,7 @@ const Identify: React.FC = () => {
           <InputMask mask="999.999.999-99" type="text" placeholder="Ex: 999.999.999-99" value={CPF} onChange={({target}) => setCPF(target.value)}/>
         </label>
 
-        <Button type="submit" label="Ir ao pagamento"/>
+        <Button type="submit" label="Ir ao pagamento" to="/pagamento"/>
 
       </form>
    </main>

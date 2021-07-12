@@ -11,6 +11,7 @@ import { cartParamsProps } from '../../@types/Cart'
 import Card from '../../Components/Card'
 import Button from '../../Components/Button'
 import Box from '../../Components/Box'
+import Sumary from '../../Components/Sumary'
 
 const Cart: React.FC = () => {
   const params: cartParamsProps = useParams()
@@ -201,30 +202,13 @@ const Cart: React.FC = () => {
             ]} />
         </main>
       </section>
-      <section id="purchase-summary">
-        <h1>Resumo da compra</h1>
-        <main>
-          <div>
-            <ol>
-              <li>
-                <span>Subtotal (2 itens)</span><span>R$ 160,00</span>
-              </li>
-              <hr />
-              <li>
-                <span>Descontos</span><span>R$ 160,00</span>
-              </li>
-              <hr />
-              <li>
-                <span>Valor total</span><span>R$ 160,00</span>
-              </li>
-            </ol>
-            <span id="button-container">
-              <Button label="Escolher mais produtos" outline to="/"/>
-              <Button label="Continuar" to="/identificacao"/>
-            </span>
-          </div>
-        </main>
-      </section>
+      <Sumary
+        items={3}
+        subvalue={160.00}
+        discount={30}
+        finalvalue={112.00}
+        buttonsDisplayed />
+
     </CardContainer>
     <Box title="Produtos relacionados">
     <Card
