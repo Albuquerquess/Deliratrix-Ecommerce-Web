@@ -220,7 +220,7 @@ const Cart: React.FC = () => {
             </ol>
             <span id="button-container">
               <Button label="Escolher mais produtos" outline to="/"/>
-              <Button label="Continuar"/>
+              <Button label="Continuar" to="/identificacao"/>
             </span>
           </div>
         </main>
