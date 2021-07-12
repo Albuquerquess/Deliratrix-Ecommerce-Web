@@ -25,30 +25,39 @@ export const StyledLabel = styled.label<StyledButtonProps>`
     align-items: center;
     justify-content: center;
     
-    a {
+    button {
         width: 100%;
+        height: 100%;
+
         display: flex;
         align-items: center;
         justify-content: center;
 
-        height: 3rem;
+        a {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        border-radius: .5rem;
+            height: 3rem;
 
-        color: ${props => props.outline ? 'var(--color-gray-5)' : 'var(--color-black)'};
-        font-weight: ${props => props.outline ? 'lighter' : 'bold'};
-        font-size: 1.6rem;
-        
-        cursor: pointer;
+            border-radius: .5rem;
 
-    }
+            color: ${props => props.outline ? 'var(--color-gray-5)' : 'var(--color-black)'};
+            font-weight: ${props => props.outline ? 'lighter' : 'bold'};
+            font-size: 1.6rem;
+            
+            cursor: pointer;
 
+            }
+
+        }
     @media screen and (max-width: ${breakpoints.tablet}) {
         width: 4rem;
         height: 1.8rem;
 
 
-        a {
+        button > a {
             font-size: .8rem;
         }
     }
