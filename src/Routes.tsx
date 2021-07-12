@@ -15,6 +15,7 @@ import View from './Pages/View';
 import Cart from './Pages/Cart';
 import Identify from './Pages/Identify';
 import Payment from './Pages/Payment';
+import Confirmation from './Pages/Confirmation';
 
 const Routes: React.FC = () => {
   return <BrowserRouter>
@@ -29,6 +30,7 @@ const Routes: React.FC = () => {
           <Route exact path="/cart/:id" component={Cart}/>
           <Route exact path="/identificacao" component={Identify}/>
           <Route exact path="/pagamento" component={Payment}/>
+          <Route exact path="/pagamento/confirmacao/:txid" component={Confirmation}/>
           <Route exact path="/sobre" component={Sobre}/>
         </Container>
       </Switch>
