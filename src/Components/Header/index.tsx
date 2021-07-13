@@ -7,8 +7,8 @@ import { HeaderContainer } from './styles';
 import bannerUrl from '../../Assets/Components/Header/banner'
 
 const Header: React.FC = () => {
-  return <HeaderContainer>
-      <img src={bannerUrl} alt="DELIRATRIX" srcSet="" />
+  return <HeaderContainer banner={bannerUrl}>
+      <div  />
   </HeaderContainer>
   ;
 }
