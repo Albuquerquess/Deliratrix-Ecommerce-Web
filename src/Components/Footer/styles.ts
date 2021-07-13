@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 export const FooterContainer = styled.footer`
-  width: 100vw;
+  width: 100%;
   height: 20rem;
   background-color: var(--color-gray);
 
@@ -13,6 +13,7 @@ export const FooterContainer = styled.footer`
 
   div#wrapper {
     width: var(--max-size-container);
+    max-width: 100%;
 
     height: 75%;
     display: flex;
@@ -64,6 +65,15 @@ export const FooterContainer = styled.footer`
       }
   }
 
+  @media (max-width: ${breakpoints.desktop}) and (min-width: ${breakpoints.tablet}) {
+    div#wrapper {
+      max-width: 75%;
+
+      section:first-child {
+        width: 25%;
+      }
+    }
+  }
 
   @media screen and (max-width: ${breakpoints.tablet}) {
     height: 100%;
@@ -144,6 +154,19 @@ export const FooterCopy = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    section > a:first-child {
+      margin-right: 1rem;
+    }
+
+  }
+
+  @media (max-width: ${breakpoints.desktop}) and (min-width: ${breakpoints.tablet}) {
+
+    div#copy-wrapper {
+      width: 90%;
+      max-width: var(--max-size-container);
+    }
   }
 
   @media screen and (max-width: ${breakpoints.tablet}) {

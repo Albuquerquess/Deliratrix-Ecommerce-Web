@@ -57,7 +57,17 @@ export const NavContainer = styled.nav<StyledNavigationProps>`
             margin-left: 1rem;
         }
 
-    @media (max-width: ${breakpoints.tablet}) {
+    @media (max-width: ${breakpoints.desktop}) and (min-width: ${breakpoints.tablet}) {
+        a#logo-container {
+            width: 30%;
+        }
+    }
+
+    main {
+        width: 70%;
+    }
+
+    @media screen and (max-width: ${breakpoints.tablet}) {
 
         & {
             a#logo-container {

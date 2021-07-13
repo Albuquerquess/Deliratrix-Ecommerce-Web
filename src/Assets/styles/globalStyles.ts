@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
         justify-content: center;
 
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
 
         /* input radio clicked class */
         .input-radio-clicked {
@@ -46,11 +46,15 @@ const GlobalStyles = createGlobalStyle`
         }
        
        }
-    body > div#root > div.App {    
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    body > div#root {
+        width: 100%;
+
+        div.App {    
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
 `
