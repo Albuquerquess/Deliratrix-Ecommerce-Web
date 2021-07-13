@@ -9,7 +9,7 @@ import breakpoints from '../../Assets/styles/breakpoints';
 export const SumaryContainer = styled.section<StyledSumaryProps>`
   main {
         width: 100%;
-        height:  ${props => props.buttonsDisplayed ? '400px' : '250px'};
+        min-height:  ${props => props.buttonsDisplayed ? '400px' : '250px'};
         max-height: 100%;
         background: var(--color-gray-2);
         border-radius: 1rem;
@@ -70,6 +70,22 @@ export const SumaryContainer = styled.section<StyledSumaryProps>`
         
             div > ol > li > span {
                 font-size: 1rem;
+            }
+
+            div > span#button-container {
+                flex-direction: column;
+                label {
+                    width: 100%;
+                    max-width: 100%;
+                    height: 3rem;
+
+                    margin-top: 1rem;
+
+                    a {
+                        font-size: 1rem;
+                    }
+
+                }
             }
         }
 
