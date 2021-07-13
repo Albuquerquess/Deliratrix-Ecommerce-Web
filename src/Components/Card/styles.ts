@@ -18,79 +18,87 @@ export const CardContainer = styled.div<StyledBoxProps>`
 
     border-radius: 1rem;
 
-    main {
+    & > a {
+        width: 100%;
+        height: 100%;
         display: flex;
-        align-items:center;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
 
-        height: 85%;
-        width: 90%;
-
-        section.card-thumb-container {
-            width: 45%;
-            height: 90%;
-            background-color: var(--color-gray-4);
-
+        main {
             display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 1rem;
-
-            div.thumb {
-                border-radius: 1rem;
-
-                width: 100%;
-                height: 100%;
-                
-                background: url(${props => props.thumb});
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-        }
-
-        section.card-desc-container {
-            width: 50%;
-            height: 90%;
-
-            display: flex;
-            flex-direction: column;
+            align-items:center;
             justify-content: space-between;
 
-            h2 {
-                font-size: 3rem;
-                font-weight: bold
-            }
+            height: 85%;
+            width: 90%;
 
-            p {
-                height: 6rem;
-                width: 100%;
-                overflow: hidden;
+            section.card-thumb-container {
+                width: 45%;
+                height: 90%;
+                background-color: var(--color-gray-4);
 
-                font-size: 1.2rem;
-            }
-
-            footer {
-                width: 100%;
-                
                 display: flex;
-                justify-content: ${props => props.onCartPage ? 'flex-end' : 'space-between'} ;
                 align-items: center;
-                
-                margin: 1rem 0;
+                justify-content: center;
 
-                span {
-                    font-size: 1.8rem;
-                    font-weight: bold;
-                }
+                border-radius: 1rem;
 
-                /* Button */
-                label {
-                    display: ${props => props.onCartPage ? 'none' : 'flex'};
+                div.thumb {
+                    border-radius: 1rem;
+
+                    width: 100%;
+                    height: 100%;
+                    
+                    background: url(${props => props.thumb});
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
                 }
             }
 
+            section.card-desc-container {
+                width: 50%;
+                height: 90%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                h2 {
+                    font-size: 3rem;
+                    font-weight: bold
+                }
+
+                p {
+                    height: 6rem;
+                    width: 100%;
+                    overflow: hidden;
+
+                    font-size: 1.2rem;
+                }
+
+                footer {
+                    width: 100%;
+                    
+                    display: flex;
+                    justify-content: ${props => props.onCartPage ? 'flex-end' : 'space-between'} ;
+                    align-items: center;
+                    
+                    margin: 1rem 0;
+
+                    span {
+                        font-size: 1.8rem;
+                        font-weight: bold;
+                    }
+
+                    /* Button */
+                    label {
+                        display: ${props => props.onCartPage ? 'none' : 'flex'};
+                    }
+                }
+
+            }
         }
     }
 
