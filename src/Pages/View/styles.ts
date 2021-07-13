@@ -83,6 +83,7 @@ export const ViewContainer = styled.div<styledViewProps>`
                             label {
                                 display: flex;
                                 align-items: center;
+                                font-size: 1.5rem;
                                 
 
 
@@ -117,8 +118,11 @@ export const ViewContainer = styled.div<styledViewProps>`
                         span#current-price {
                             width: 100%;
                             margin-bottom: 2rem;
+                            
                             font-size: 2rem;
                             font-weight: bold;
+                            color: var(--color-white);
+                            
                             order: 1;
                             
                         }
