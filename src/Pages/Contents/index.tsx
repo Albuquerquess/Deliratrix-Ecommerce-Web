@@ -27,7 +27,7 @@ const Contents: React.FC = () => {
   }, [params])
   return <>
       <SearchInput value={search} setValue={setSearch} onlyMobile/>
-      <Box title={'Produtos'}>
+      <Box title={type}>
         <Card
           title={'Titulo'}
           description={'Cillum quis cillum consequat sit nulla quis pariatur magna do aliquip pariatur cillum. Sunt aliqua exercitation magna aliqua aute. Irure et labore velit ex do. Qui enim reprehenderit aute cillum labore tempor dolore sit est ad reprehenderit et duis ex. Occaecat nulla dolor aliqua aliqua anim enim. Do magna ut enim ad elit. Mollit id laboris consequat cillum nostrud irure.'}
