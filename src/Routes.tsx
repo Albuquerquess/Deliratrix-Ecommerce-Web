@@ -17,9 +17,13 @@ import Identify from './Pages/Identify';
 import Payment from './Pages/Payment';
 import Confirmation from './Pages/Confirmation';
 
+// utils
+import ScrollToTop from './Utils/scrollToTop';
+
 const Routes: React.FC = () => {
   return <BrowserRouter>
     <BrowserRouter>
+      <ScrollToTop />
       <Switch>
         <Container>
           <Navigation />
