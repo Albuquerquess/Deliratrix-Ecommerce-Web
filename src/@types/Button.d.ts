@@ -4,7 +4,11 @@ export interface ButtonProps {
     outline?: boolean;
     to?: string;
     handleClicked?: () => void;
+
+    disabled?: boolean;
 }
 export interface StyledButtonProps {
     outline?: boolean;
+    disabled?: boolean;
+
 }

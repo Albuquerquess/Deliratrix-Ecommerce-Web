@@ -4,10 +4,11 @@ import { ButtonProps } from '../../@types/Button';
 
 import { StyledLabel } from './styles';
 
-const Button: React.FC<ButtonProps> = ({label, to, handleClicked, outline, type}) => {
-  return <StyledLabel outline={outline}>
+const Button: React.FC<ButtonProps> = ({label, to, handleClicked, outline, type, disabled}) => {
+  const isDisabled = disabled ? true : false
+  return <StyledLabel outline={outline} disabled={isDisabled}>
     <button type={type || ''}>
-      <Link to={to || '#'} onClick={handleClicked}> 
+      <Link to={(isDisabled ? '#' : to) || '#'} onClick={handleClicked}> 
         {label || 'Clique aqui'}
       </Link>
     </button>

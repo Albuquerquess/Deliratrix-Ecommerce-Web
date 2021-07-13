@@ -11,7 +11,8 @@ export const StyledLabel = styled.label<StyledButtonProps>`
     max-width: 12rem;
     height: 3rem;
 
-    background: ${props => props.outline ? 'none' : 'var(--color-green)'};
+    background: ${props => props.disabled ? 'var(--color-gray-5)' : (props.outline ? 'none' : 'var(--color-green)')};
+
     
     border-radius: .5rem;
     border: ${props => props.outline ? '0.2rem solid var(--color-gray-5)' : 'none'};
