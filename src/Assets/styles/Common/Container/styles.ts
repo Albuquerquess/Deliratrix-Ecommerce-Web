@@ -12,6 +12,7 @@ export const CommonContainer = styled.div`
     align-items: center;
     justify-content: flex-start;
     flex-direction:column;
+    overflow-wrap: break-word;
 `;
 
 export const CommonWrapper = styled.main`
