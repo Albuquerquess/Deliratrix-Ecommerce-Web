@@ -25,7 +25,7 @@ export const CardContainer = styled.div<StyledBoxProps>`
         align-items: center;
         justify-content: center;
 
-        main {
+        main#card-main {
             display: flex;
             align-items:center;
             justify-content: space-between;
@@ -67,7 +67,8 @@ export const CardContainer = styled.div<StyledBoxProps>`
 
                 h2 {
                     font-size: 3rem;
-                    font-weight: bold
+                    font-weight: bold;
+                    color: var(--color-white);
                 }
 
                 p {
@@ -104,7 +105,7 @@ export const CardContainer = styled.div<StyledBoxProps>`
 
     @media screen and (max-width: ${breakpoints.tablet}) {
         height: 200px;
-        & > a > main {
+        & > a > main#card-main {
             width: 95%;
             height: 95%;
 
