@@ -109,7 +109,7 @@ textarea
 	white-space:normal;
 	background:none;
 	line-height:1;
-	color: var(--color-white)
+	color: var(--color-white);
 	
 	/* Browsers have different default form fonts */
 	font-size:13px;
