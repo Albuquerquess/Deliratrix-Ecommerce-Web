@@ -35,8 +35,8 @@ const Navigation: React.FC = () => {
       <main>
         <ul>
           <li><Link to="/sobre" >Sobre</Link></li>
-          <li><Link to="/explorar/produtos" >Produtos</Link></li>
-          <li><Link to="/explorar/servicos" >Serviços</Link></li>
+          <li><Link to="/explorar/Produtos" >Produtos</Link></li>
+          <li><Link to="/explorar/Servicos" >Serviços</Link></li>
         </ul>
         
        <SearchInput value={search} setValue={setSearch} redirectTo={`/search`} />
