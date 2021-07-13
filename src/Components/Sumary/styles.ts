@@ -53,6 +53,8 @@ export const SumaryContainer = styled.section<StyledSumaryProps>`
                 align-items: center;
                 justify-content: space-between;
 
+                margin-top: 3rem;
+
                 label {
                     max-width: 48%;
                     height: 5rem;
