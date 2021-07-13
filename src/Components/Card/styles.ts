@@ -104,7 +104,7 @@ export const CardContainer = styled.div<StyledBoxProps>`
 
     @media screen and (max-width: ${breakpoints.tablet}) {
         height: 200px;
-        main {
+        & > a > main {
             width: 95%;
             height: 95%;
 
