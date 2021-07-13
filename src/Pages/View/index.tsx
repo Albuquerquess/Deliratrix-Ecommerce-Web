@@ -53,7 +53,7 @@ const View: React.FC = () => {
             </ol>
               <footer>
                 <span id="current-price">R$ 80,00</span>
-                <Button label="Adicionar ao carrinho" to="/cart/49"/>
+                <Button label="Adicionar ao carrinho" to="/carrinho/49"/>
                 <img src={pix} alt="Pagamento via PIX" />
               </footer>
           </div>
