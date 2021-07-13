@@ -15,10 +15,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, handleClickFunction }) => {
       <div className="wrapper">
           <nav><SidebarClose clickFunction={handleClickFunction}/></nav>
           <ul>
-              <li><Link to="/sobre">Sobre</Link></li>
-              <li><Link to="/explorar/servicos">Serviços</Link></li>
-              <li><Link to="/explorar/produtos">Produtos</Link></li>
-              <li><Link to="/">Página inicial</Link></li>
+              <li onClick={() =>handleClickFunction(false)} ><Link to="/sobre">Sobre</Link></li>
+              <li onClick={() =>handleClickFunction(false)} ><Link to="/explorar/servicos">Serviços</Link></li>
+              <li onClick={() =>handleClickFunction(false)} ><Link to="/explorar/produtos">Produtos</Link></li>
+              <li onClick={() =>handleClickFunction(false)} ><Link to="/">Página inicial</Link></li>
           </ul>
       </div>
   </SidebarContainer>;
