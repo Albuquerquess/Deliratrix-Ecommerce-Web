@@ -12,11 +12,14 @@ import Card from '../../Components/Card'
 // assets
 import pix from '../../Assets/Pages/View/pix.svg'
 
-const View: React.FC = () => {
+// Context
+import { CartContext } from '../../Context/cart'
 
+const View: React.FC = () => {
   const [search, setSearch] = React.useState('')
   const [inputClick, setInputClick] = React.useState('price_1')
-
+  
+  const Context = React.useContext(CartContext)  
 
   return <ViewContainer image="https://images.unsplash.com/photo-1625093440233-1dac60534a68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
     <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
@@ -53,7 +56,7 @@ const View: React.FC = () => {
             </ol>
               <footer>
                 <span id="current-price">R$ 80,00</span>
-                <Button label="Adicionar ao carrinho" to="/carrinho/49"/>
+                <Button label="Adicionar ao carrinho" to="/carrinho/49" handleClicked={() => Context.handleAddItemToCart(1)}/>
                 <img src={pix} alt="Pagamento via PIX" />
               </footer>
           </div>

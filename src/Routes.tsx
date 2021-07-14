@@ -20,25 +20,30 @@ import Confirmation from './Pages/Confirmation';
 // utils
 import ScrollToTop from './Utils/scrollToTop';
 
+// context
+import { CartProvider } from './Context/cart'
+
 const Routes: React.FC = () => {
   return <BrowserRouter>
     <BrowserRouter>
-      <ScrollToTop />
-      <Switch>
-        <Container>
-          <Navigation />
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/explorar/:type" component={Content}/>
-          <Route exact path="/search/:search" component={Search}/>
-          <Route exact path="/visualizar/:id" component={View}/>
-          <Route exact path="/carrinho/:id" component={Cart}/>
-          <Route exact path="/identificacao" component={Identify}/>
-          <Route exact path="/pagamento" component={Payment}/>
-          <Route exact path="/pagamento/confirmacao/:txid" component={Confirmation}/>
-          <Route exact path="/sobre" component={Sobre}/>
-        </Container>
-      </Switch>
-      <Footer />
+      <CartProvider>
+        <ScrollToTop />
+        <Switch>
+          <Container>
+            <Navigation />
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/explorar/:type" component={Content}/>
+            <Route exact path="/search/:search" component={Search}/>
+            <Route exact path="/visualizar/:id" component={View}/>
+            <Route exact path="/carrinho/:id" component={Cart}/>
+            <Route exact path="/identificacao" component={Identify}/>
+            <Route exact path="/pagamento" component={Payment}/>
+            <Route exact path="/pagamento/confirmacao/:txid" component={Confirmation}/>
+            <Route exact path="/sobre" component={Sobre}/>
+          </Container>
+        </Switch>
+        <Footer />
+      </CartProvider>
     </BrowserRouter>
   </BrowserRouter>;
 }
