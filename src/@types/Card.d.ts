@@ -7,7 +7,6 @@ export interface CardProps {
     id?: number;
     type?: string;
     category?: string;
-    prices?: Object[];
     removeDisplayed?: boolean;
     onCartPage?: boolean;
     handleRemove?: () => void;

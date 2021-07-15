@@ -39,7 +39,7 @@ const Search: React.FC = () => {
 
   React.useEffect(() => {
     getContentOnbackendByFilter()
-  }, [selectValue, searchParam])
+  }, [selectValue, searchParam, getContentOnbackendByFilter])
   
   return <SearchContainer modalIsOpen={modalIsOpen}>
     <SearchInput value={search} setValue={setSearch} redirectTo={'/search'}/>
@@ -104,24 +104,7 @@ const Search: React.FC = () => {
         rate={4}
         type="produto"
         category="sexo"
-        id={1}
-        prices={ [
-          {
-            id: 1,
-            price: 80,
-            label: 'Label do preço'
-          },
-          {
-            id: 1,
-            price: 80,
-            label: 'Label do preço'
-          },
-          {
-            id: 1,
-            price: 80,
-            label: 'Label do preço'
-          },
-        ]} />
+        id={1} />
       </Box>
   </SearchContainer>;
 }

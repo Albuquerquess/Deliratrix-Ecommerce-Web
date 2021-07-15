@@ -17,11 +17,11 @@ import { CardContainer, CardRemove } from './styles';
 import breakpoints from '../../Assets/styles/breakpoints';
 import { Link } from 'react-router-dom';
 
-const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, prices, removeDisplayed, handleRemove, onCartPage}) => {
+const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage}) => {
 
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
-
+  
   return <>
     <CardContainer thumb={image} onCartPage={onCartPage}>
       <Link to={`/visualizar/${id}`}>

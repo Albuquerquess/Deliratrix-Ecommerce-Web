@@ -29,24 +29,7 @@ const Confirmation: React.FC = () => {
             rate={4}
             type="sexo"
             category="orgia"
-            id={1}
-            prices={ [
-            {
-                id: 1,
-                price: 80,
-                label: 'Label do preço'
-            },
-            {
-                id: 1,
-                price: 80,
-                label: 'Label do preço'
-            },
-            {
-                id: 1,
-                price: 80,
-                label: 'Label do preço'
-            },
-            ]} />
+            id={1} />
     <Card
             title="ASMR"
             description="ASMR é uma sigla que define gatilhos sensoriais que relaxam profundamente, causando arrepios, sono e sensação de formigamento. Se você deseja uma... experiência sedante e repleta de prazer, este é o serviço ideal!"
@@ -55,24 +38,7 @@ const Confirmation: React.FC = () => {
             rate={4}
             type="sexo"
             category="orgia"
-            id={1}
-            prices={ [
-            {
-                id: 1,
-                price: 80,
-                label: 'Label do preço'
-            },
-            {
-                id: 1,
-                price: 80,
-                label: 'Label do preço'
-            },
-            {
-                id: 1,
-                price: 80,
-                label: 'Label do preço'
-            },
-            ]} />
+            id={1} />
   </Box>
   </>
 }
