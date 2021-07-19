@@ -29,6 +29,7 @@ export const AboutContainer = styled.div`
                 width: 70%;
                 font-size: 1.4rem;
                 line-height: 1.5rem;
+                text-align: justify;
             }
 
         }
