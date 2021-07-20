@@ -45,13 +45,12 @@ const Home: React.FC = () => {
     <Header />
     <Box title="Serviços mais contratados">
       {servicesData ? servicesData.map(service => {
-        console.log(service)
-        const priceRef = service.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+        const priceRef = service.price?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
       return <Card 
         title={service.title}
         description={service.desc}
         image={service.url}
-        value={priceRef}
+        value={priceRef || 'Não foi possivel resgatar o valor'}
         rate={4}
         type="sexo"
         category="orgia"
@@ -78,7 +77,7 @@ const Home: React.FC = () => {
         />}) 
           :
         <p>Não foi possivel buscar as informações</p>}    
-      <CardButton label="Ver todos os produtos" to="/explorar/Produtos"/>
+      <CardButton label="Ver todos os serviços" to="/explorar/Servicos"/>
     </Box>
     
  </>

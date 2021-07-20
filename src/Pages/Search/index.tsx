@@ -1,11 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom'
-
+import { useDebounce } from 'use-lodash-debounce'
+ 
 // styles
 import { SearchContainer } from './styles';
 
 // @types
-import { searchParamsProps } from '../../@types/searchPage';
+import { searchParamsProps, searchDataProps } from '../../@types/searchPage';
 
 // components
 import SearchInput from '../../Components/SearchInput'
@@ -16,37 +17,49 @@ import Select from 'react-select';
 // Assets
 import Sort from '../../Assets/Components/SearchPage/Sort'
 
+// consts
+import { INDEX_SEARCH } from '../../Consts/urls'
+
+// api
+import Api from '../../Services/Api';
+
 const Search: React.FC = () => {
   const params: searchParamsProps = useParams();
-  const searchParam = params.search
+  const searchParam: string = params.search
   
   const selarctSearchFilterOptions = [
     {value: 'rate', label: 'Melhor avaliação'},
-    {value: 'highest_price', label: 'Maior preço'},
-    {value: 'lowest_price', label: 'Menor preço'},
-    {value: 'best_sallers', label: 'Mais vendidos'},
+    {value: 'bprice', label: 'Maior preço'},
+    {value: 'lprice', label: 'Menor preço'}
   ]
 
   const [selectValue, setSelectValue] = React.useState('rate')
   const [modalIsOpen, setModalIsOpen] = React.useState(false)
   const [search, setSearch] = React.useState('')
+  const searchDebounce = useDebounce(search, 1000)
+  const [searchData, setSearchData] = React.useState<searchDataProps[]>([])
 
   
   async function getContentOnbackendByFilter() {
-    // faz a requisição
-    console.log(' Faz a pesquisa pelo filtro ' + selectValue + 'e pelo parametro ' + searchParam)
+    const response = await Api.get(INDEX_SEARCH, {params: {search: searchDebounce, orderBy: selectValue}})
+    setSearchData(response.data)
+
   }
 
   React.useEffect(() => {
+    setSearch(searchParam)
     getContentOnbackendByFilter()
-  }, [selectValue, searchParam, getContentOnbackendByFilter])
+  }, [])
+  React.useEffect(() => {
+    getContentOnbackendByFilter()
+  }, [searchDebounce, selectValue])
   
   return <SearchContainer modalIsOpen={modalIsOpen}>
     <SearchInput value={search} setValue={setSearch} redirectTo={'/search'}/>
       <header>
         <section>
-          <h1>{searchParam  && searchParam !== '' ? searchParam : 'Digite sua pesquisa na caixa acima'}</h1>
-          <span>5 resultados encontrados</span>
+          <h1>{searchDebounce  && searchDebounce !== '' ? searchDebounce : 'Digite sua pesquisa na caixa acima'}</h1>
+          <span>{searchData.length} resultados encontrados</span>
         </section>
         <section>
           <span>ordenar por</span>
@@ -56,7 +69,7 @@ const Search: React.FC = () => {
             classNamePrefix="select-component"
             placeholder="Selecione um filtro"
             className="select-component-container"
-            onChange={(selectedOption) => {setSelectValue(selectedOption?.value || '')}}
+            onChange={(selectedOption) => setSelectValue(selectedOption?.value || '')}
             />
           <Sort clickFunction={() => setModalIsOpen(true)}/>
           <div id="select-modal" >
@@ -70,23 +83,17 @@ const Search: React.FC = () => {
                     onClick={() => setModalIsOpen(false)} 
                     />Melhor avaliação</label>
                     </li>
-                  <li><label htmlFor="highest_price">
-                    <input name="input" id="highest_price" value="highest_price" type="radio" 
+                  <li><label htmlFor="bprice">
+                    <input name="input" id="bprice" value="bprice" type="radio" 
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setSelectValue(e.target.value)}}
                     onClick={() => setModalIsOpen(false)} 
                     />Maior preço</label>
                     </li>
-                  <li><label htmlFor="lowest_price">
-                    <input name="input" id="lowest_price" value="lowest_price" type="radio" 
+                  <li><label htmlFor="lprice">
+                    <input name="input" id="lprice" value="lprice" type="radio" 
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setSelectValue(e.target.value)}}
                     onClick={() => setModalIsOpen(false)} 
-                    />Menos preço</label>
-                    </li>
-                  <li><label htmlFor="best_sallers">
-                    <input name="input" id="best_sallers" value="best_sallers" type="radio" 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setSelectValue(e.target.value)}}
-                    onClick={() => setModalIsOpen(false)} 
-                    />Mais vendidos</label>
+                    />Menor preço</label>
                     </li>
                 </ol>
               </div>
@@ -96,15 +103,15 @@ const Search: React.FC = () => {
       </header>
 
       <Box>
-             <Card
-        title="ASMR"
-        description="ASMR é uma sigla que define gatilhos sensoriais que relaxam profundamente, causando arrepios, sono e sensação de formigamento. Se você deseja uma... experiência sedante e repleta de prazer, este é o serviço ideal!"
-        image="https://images.unsplash.com/photo-1625093440233-1dac60534a68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-        value="R$ 5/min"
-        rate={4}
-        type="produto"
-        category="sexo"
-        id={1} />
+        {searchData && searchData.map(content => <Card
+          title={content.title}
+          description={content.desc}
+          image={content.url}
+          value={content.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          rate={content.rate}
+          type={content.type}
+          category={content.category}
+          id={1} />)}
       </Box>
   </SearchContainer>;
 }

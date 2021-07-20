@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 export const PaymentContainer = styled.div`
+  margin-bottom: 2rem;
   h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -33,7 +34,7 @@ export const PaymentContainer = styled.div`
                 width: 48%;
             }
         }
-        section:last-child {
+        section#pix-raw {
             width: 100%;
             margin-bottom: 2rem;
 
@@ -63,6 +64,7 @@ export const PaymentContainer = styled.div`
 
   div#purchase-summary {
     width: 50%;
+    margin-top: 2rem;
   }
 
   @media screen and (max-width: ${breakpoints.tablet}) {

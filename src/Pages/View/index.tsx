@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'
 
 // styles
 import { ViewContainer } from './styles';
@@ -13,91 +14,114 @@ import Card from '../../Components/Card'
 import pix from '../../Assets/Pages/View/pix.svg'
 
 // Context
-import { CartContext } from '../../Context/cart'
+import { CartContext } from '../../Context/Cart'
+
+// @types
+import { viewParamsProps, responseUniqueContentProps, priceProps, contentProps } from '../../@types/View'
+
+// consts
+import { INDEX_SHOW, INDEX_CATEGORY } from '../../Consts/urls'
+
+// services
+import Api from '../../Services/Api'
+import react from 'react';
 
 const View: React.FC = () => {
   const [search, setSearch] = React.useState('')
-  const [inputClick, setInputClick] = React.useState('price_1')
+  const [itemClickOnInput, setItemClickOnInput] = React.useState<number | null>(null)
+
+  const [contentData, setContentData] = React.useState<responseUniqueContentProps>()
+  const [currentPrice, setCurrentPrice] = react.useState<priceProps>()
+
+  const [contentDataByCategory, setContentDataByCategory] = React.useState<contentProps[]>([])
+
+  const params: viewParamsProps = useParams()
+  const id = params.id
   
   const Context = React.useContext(CartContext)  
 
-  return <ViewContainer image="https://images.unsplash.com/photo-1625093440233-1dac60534a68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
-    <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
+  async function getUniqueContentOnBackend(id: string) {
 
-    <nav>
-      <span>Produtos {'>'} Sexo {'>'} Boquete </span>
-    </nav>
-    <main id="view-main">
-      <section>
-        <div id="image"></div>
-        <div id="options">
-          <nav>
-            <h1>Sexo</h1>
-            <span>Categoria: Sexo</span>
-          </nav>
-          <div id="select-options">
-            <ol>
-              <h2>Selecione uma opção:</h2>
-              <li>
-                <label htmlFor="price_1" onClick={() => setInputClick('price_1')}>
-                  <div className={`radio ${inputClick === 'price_1' && 'input-radio-clicked'}`} >1</div>
-                  <input type="radio" name="price" id="price_1" value="price1" />Tipo 01</label>
-              </li>
-              <li>
-                <label htmlFor="price_2" onClick={() => setInputClick('price_2')}>
-                  <div className={`radio ${inputClick === 'price_2' && 'input-radio-clicked'}`}>2</div>
-                  <input type="radio" name="price" id="price_2" value="price2" />Tipo 01</label>
-              </li>
-              <li>
-                <label htmlFor="price_3" onClick={() => setInputClick('price_3')}>
-                  <div className={`radio ${inputClick === 'price_3' && 'input-radio-clicked'}`}>3</div>
-                  <input type="radio" name="price" id="price_3" value="price3" />Tipo 01</label>
-              </li>
-            </ol>
-              <footer>
-                <span id="current-price">R$ 80,00</span>
-                <Button label="Adicionar ao carrinho" to="/carrinho/49" handleClicked={() => Context.handleAddItemToCart(1)}/>
-                <img src={pix} alt="Pagamento via PIX" />
-              </footer>
-          </div>
+    const responseUniqueContent = await Api.get(INDEX_SHOW, {params: {id: id}})
+    setContentData(responseUniqueContent.data)
+  }
+  async function getRelatedContentOnBackend(category: string | undefined, type: string | undefined) {
+    if (category === undefined) return // falar q n foi possivel acessar os dados no servidor
+    const responseContentByCategory = await Api.get(INDEX_CATEGORY, {params: {category: category, type: type}})
+    
+    setContentDataByCategory(responseContentByCategory.data)
+  }
+
+  React.useEffect(() => {
+    getUniqueContentOnBackend(String(id))
+  }, [])
+
+  React.useEffect(() => {
+    const category = contentData?.content.category 
+    const type = contentData?.content.type 
+    getRelatedContentOnBackend(category, type)
+  }, [contentData])
+
+ 
+  return <>{contentData && contentData.content ? <ViewContainer image={contentData?.content.url}>
+  <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
+
+  <nav>
+    <span>Produtos {'>'} Sexo {'>'} Boquete </span>
+  </nav>
+  {<main id="view-main">
+    <section>
+      <div id="image"></div>
+      <div id="options">
+        <nav>
+          <h1>Sexo</h1>
+          <span>Categoria: {contentData.content.category}</span>
+        </nav>
+        <div id="select-options">
+          <ol>
+            <h2>Selecione uma opção:</h2>
+            {contentData.prices.map((price, index) => {
+              return <li key={index}>
+              <label htmlFor={String(price.id)} onClick={() => {
+                setCurrentPrice(price)
+                setItemClickOnInput(price.id)}
+                }>
+
+                <div className={`radio ${itemClickOnInput === price.id && 'input-radio-clicked'}`} >1</div>
+                <input type="radio" name="price" id={price.label} value={price.price} />{price.label}</label>
+            </li>
+            })}
+          </ol>
+            <footer>
+              <span id="current-price">{currentPrice?.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })|| 'Por favor, selecione uma opção'}</span>
+              <Button label="Adicionar ao carrinho" to="/carrinho/49" handleClicked={() => Context.handleAddItemToCart(contentData.content.id, Number(currentPrice?.id))} disabled={!currentPrice && true}/>
+              <img src={pix} alt="Pagamento via PIX" />
+            </footer>
         </div>
-      </section>
-      <section>
-         <h2>Descrição</h2>
-         <p>Dolor officia id non exercitation est eu aliquip. Do eiusmod veniam officia enim dolor labore aute ex. Dolore anim eiusmod veniam do. Occaecat velit laborum velit sint anim consequat officia. Fugiat magna occaecat ea qui ullamco aute adipisicing magna minim aute tempor reprehenderit anim excepteur. .Quis in aute exercitation reprehenderit minim. Culpa culpa incididunt mollit cillum tempor minim. Cillum minim id consectetur velit quis ipsum. Tempor excepteur Lorem culpa aliquip reprehenderit. Elit in nostrud eu do voluptate officia velit pariatur ipsum do ipsum incididunt. Dolore cupidatat aliquip laboris id sit pariatur aliquip non nisi elit voluptate voluptate officia.</p>
-      </section>
-    </main>
+      </div>
+    </section>
+    <section>
+       <h2>Descrição</h2>
+       <p>Dolor officia id non exercitation est eu aliquip. Do eiusmod veniam officia enim dolor labore aute ex. Dolore anim eiusmod veniam do. Occaecat velit laborum velit sint anim consequat officia. Fugiat magna occaecat ea qui ullamco aute adipisicing magna minim aute tempor reprehenderit anim excepteur. .Quis in aute exercitation reprehenderit minim. Culpa culpa incididunt mollit cillum tempor minim. Cillum minim id consectetur velit quis ipsum. Tempor excepteur Lorem culpa aliquip reprehenderit. Elit in nostrud eu do voluptate officia velit pariatur ipsum do ipsum incididunt. Dolore cupidatat aliquip laboris id sit pariatur aliquip non nisi elit voluptate voluptate officia.</p>
+    </section>
+  </main>}
 
-    <Box title="Produtos relacionados">
-    <Card
-        title="ASMR"
-        description="ASMR é uma sigla que define gatilhos sensoriais que relaxam profundamente, causando arrepios, sono e sensação de formigamento. Se você deseja uma... experiência sedante e repleta de prazer, este é o serviço ideal!"
-        image="https://images.unsplash.com/photo-1625093440233-1dac60534a68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-        value="R$ 5/min"
-        rate={4}
-        type="sexo"
-        category="orgia"
-        id={1} />
-    <Card
-        title="ASMR"
-        description="ASMR é uma sigla que define gatilhos sensoriais que relaxam profundamente, causando arrepios, sono e sensação de formigamento. Se você deseja uma... experiência sedante e repleta de prazer, este é o serviço ideal!"
-        image="https://images.unsplash.com/photo-1625093440233-1dac60534a68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-        value="R$ 5/min"
-        rate={4}
-        type="sexo"
-        category="orgia"
-        id={1} />
-    <Card
-        title="ASMR"
-        description="ASMR é uma sigla que define gatilhos sensoriais que relaxam profundamente, causando arrepios, sono e sensação de formigamento. Se você deseja uma... experiência sedante e repleta de prazer, este é o serviço ideal!"
-        image="https://images.unsplash.com/photo-1625093440233-1dac60534a68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-        value="R$ 5/min"
-        rate={4}
-        type="sexo"
-        category="orgia"
-        id={1} />
-    </Box>
-  </ViewContainer>;
+  <Box title="Produtos relacionados">
+  {contentDataByCategory && contentDataByCategory.map((content) => {
+
+    return <Card
+    title={content.title}
+    description={content.desc}
+    image={content.url}
+    value={content.price?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+    rate={content.rate}
+    type={content.type}
+    category={content.category}
+    id={content.id} />
+  }
+  )}
+  </Box>
+</ViewContainer> : <h1>Não foi possivel carregar a página :/</h1>}</>;
 }
 
 export default View;

@@ -34,6 +34,10 @@ export const CardContainer = styled.div`
         }   
     }
 
+    section#cart > main {
+        width:100%
+    }
+
     @media (max-width: ${breakpoints.tablet}) {
         flex-direction: column;
         margin-top: 0;

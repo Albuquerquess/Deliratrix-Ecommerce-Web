@@ -1,15 +1,20 @@
 import React from 'react';
-
+// @types
+import { RouteProps } from 'react-router-dom';
+import { PaymentProps } from '../../@types/Payment';
+import Copy from '../../Assets/Pages/Payment/Copy';
+// Assets
+import PixIcon from '../../Assets/Pages/Payment/pix.svg';
+// components
+import Sumary from '../../Components/Summary';
 import { PaymentContainer } from './styles';
 
-// Assets
-import PixIcon from '../../Assets/Pages/Payment/pix.svg'
-import Copy from '../../Assets/Pages/Payment/Copy'
+const Payment: React.FC<RouteProps> = (history) => {
+  const states = history.location?.state as PaymentProps
+  const qrcode = states.qrcode
+  const txid = states.txid
+  const chargeRaw = states.chargeRaw
 
-// components
-import Sumary from '../../Components/Sumary'
-
-const Payment: React.FC = () => {
   return <PaymentContainer>
     <h1>Pagamento</h1>
     <h2>Digitalize o código pix QR abaixo com o seu celular.</h2>
@@ -17,28 +22,35 @@ const Payment: React.FC = () => {
     <main>
         <div id="payment-container">
             <section>
-                <img src="https://www.jornalestadodegoias.com.br/wp-content/uploads/2020/03/qr-code.png" id="pix-qrcode" alt="Ocorreu um erro ao gerar o QRCode PIX" />
+                <img src={qrcode} id="pix-qrcode" alt="Ocorreu um erro ao gerar o QRCode PIX" />
                 <img src={PixIcon} alt="Pague com PIX" />
             </section>
-            <section>
+            <section id="charge-raw">
                 <h1>Teve problemas com o código QRCode? Utilize a chave abaixo!</h1>
                 <div>
-                  <p id="pix-raw">00020126580014br.gov.bcb.pix0136123e4567-e12b-12d1-a456-426655440000 5204000053039865802BR5913Fulano de Tal6008BRASILIA62070503***63041D3D</p>
+                  <p id="pix-raw">{chargeRaw}</p>
                   <div id="copy">
                     <span>Clique para copiar</span>
-                    <Copy clickFunction={() =>navigator.clipboard.writeText('00020126580014br.gov.bcb.pix0136123e4567-e12b-12d1-a456-426655440000 5204000053039865802BR5913Fulano de Tal6008BRASILIA62070503***63041D3D')} />
+                    <Copy clickFunction={() =>navigator.clipboard.writeText(chargeRaw)} />
                   </div>
+                  
+                </div>
+            </section>
+            <section id="txid" style={{marginTop: '2rem'}}>
+                <h1 style={{fontSize: '1.2rem'}}>Guarde o seu código identificador de compra (ele será útil em caso de erros)</h1>
+                <div>
+                  <p id="pix-raw">{txid}</p>
+                  <div id="copy">
+                    <span>Clique para copiar</span>
+                    <Copy clickFunction={() =>navigator.clipboard.writeText(txid)} />
+                  </div>
+                  
                 </div>
             </section>
         </div>
     </main>
     <div id="purchase-summary">
-      <Sumary
-          items={3}
-          subvalue={160.00}
-          discount={30}
-          finalvalue={112.00} 
-          />
+      <Sumary />
     </div>
   </PaymentContainer>;
 }

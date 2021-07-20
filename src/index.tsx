@@ -6,6 +6,9 @@ import App from './App';
 import ResetCSS from './Assets/styles/resetCSS'
 import GlobalStyles from './Assets/styles/globalStyles';
 
+// React-loader-spinner style
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
