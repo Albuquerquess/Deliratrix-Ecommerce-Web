@@ -1,21 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 // @types
 import { CardProps } from '../../@types/Card';
-
-// Components
-import Rate from '../Rate'
-import Button from '../Button';
-
-// Utils
-import getWindowDimensions from '../../Utils/getWindowDimension'
-
-// Styles
-import { CardContainer, CardRemove } from './styles';
-
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
-import { Link } from 'react-router-dom';
+// Utils
+import getWindowDimensions from '../../Utils/getWindowDimension';
+import Button from '../Button';
+// Components
+import Rate from '../Rate';
+// Styles
+import { CardContainer, CardRemove } from './styles';
 
 const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage}) => {
 

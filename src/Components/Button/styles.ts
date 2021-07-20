@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-
-// breakpoints
-import breakpoints from '../../Assets/styles/breakpoints';
-
 // @types
 import { StyledButtonProps } from '../../@types/Button';
+// breakpoints
+import breakpoints from '../../Assets/styles/breakpoints';
 
 export const StyledLabel = styled.label<StyledButtonProps>`
     width: 100%;
