@@ -21,11 +21,14 @@ import Confirmation from './Pages/Confirmation';
 import ScrollToTop from './Utils/scrollToTop';
 
 // context
-import { CartProvider } from './Context/cart'
+import { CartProvider } from './Context/Cart'
+import { DebtorProvider } from './Context/Debtor'
+
 
 const Routes: React.FC = () => {
   return <BrowserRouter>
     <BrowserRouter>
+    <DebtorProvider>
       <CartProvider>
         <ScrollToTop />
         <Switch>
@@ -44,6 +47,7 @@ const Routes: React.FC = () => {
         </Switch>
         <Footer />
       </CartProvider>
+      </DebtorProvider>
     </BrowserRouter>
   </BrowserRouter>;
 }
