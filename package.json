@@ -6,20 +6,26 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@types/dotenv": "^8.2.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.15",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
     "@types/react-select": "^4.0.17",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-input-mask": "^2.0.4",
+    "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-select": "^4.3.1",
     "react-simple-star-rating": "^1.0.6",
     "styled-components": "^5.3.0",
     "typescript": "^4.3.4",
+    "universal-cookie": "^4.0.4",
+    "use-lodash-debounce": "^1.1.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -47,8 +53,12 @@
     ]
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react-input-mask": "^3.0.1",
+    "@types/react-loader-spinner": "^4.0.0",
     "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.10"
+    "@types/styled-components": "^5.1.10",
+    "@types/universal-cookie": "^3.0.0"
   }
 }
