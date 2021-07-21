@@ -9,6 +9,7 @@ export interface CardProps {
     category?: string;
     removeDisplayed?: boolean;
     onCartPage?: boolean;
+    redirect?: boolean;
     handleRemove?: () => void;
 }
 export interface StyledBoxProps {

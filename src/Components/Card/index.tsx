@@ -12,14 +12,14 @@ import Rate from '../Rate';
 // Styles
 import { CardContainer, CardRemove } from './styles';
 
-const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage}) => {
+const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage, redirect}) => {
 
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
   
   return <>
     <CardContainer thumb={image} onCartPage={onCartPage}>
-      <Link to={`/visualizar/${id}`}>
+      <Link to={redirect ? `/visualizar/${id}`: '#'}>
         <main id="card-main">
           <section className="card-thumb-container">
             <div className="thumb"></div>
@@ -32,7 +32,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate, type
             <p>{description}</p>
             <footer>
               <span>{value}</span>
-              <Button to={`/visualizar/${id}`} label="Comprar!"/>
+              <Button to={redirect ? `/visualizar/${id}`: '#'} label="Comprar!"/>
             </footer>
           </section>
         </main>
