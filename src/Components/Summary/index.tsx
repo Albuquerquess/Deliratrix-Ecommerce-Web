@@ -1,16 +1,11 @@
 import React from 'react';
-
-import { SumaryContainer } from './styles';
-
-// components
-import Button from '../Button/index'
-
 // @types
-import { SumaryProps, SumaryDataProps } from '../../@types/Sumary'
-
+import { SumaryDataProps, SumaryProps } from '../../@types/Sumary';
 // context
 import { CartContext } from '../../Context/Cart';
-
+// components
+import Button from '../Button/index';
+import { SumaryContainer } from './styles';
 
 const Summary: React.FC<SumaryProps> = ({ buttonsDisplayed }) => {
   const cartContext = React.useContext(CartContext)

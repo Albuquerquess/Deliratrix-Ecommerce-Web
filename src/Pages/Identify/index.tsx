@@ -1,28 +1,23 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
-
 import InputMask from "react-input-mask";
-
+import { useHistory } from "react-router-dom";
+// @types
+import { DebtorProps } from '../../@types/Identify';
+import Box from '../../Components/Box';
+// components
+import Button from '../../Components/Button';
+import Card from '../../Components/Card';
+// consts
+import { PAYMENT_GENERATE } from '../../Consts/urls';
+// context
+import { CartContext } from '../../Context/Cart';
+import { DebtorContext } from '../../Context/Debtor';
+// Api
+import Api from '../../Services/Api';
 // styles
 import { IdentifyContaier } from './styles';
-
-// components
-import Button from '../../Components/Button'
-import Box from '../../Components/Box'
-import Card from '../../Components/Card'
-
-// Api
-import Api from '../../Services/Api'
-
-// consts
-import { PAYMENT_GENERATE } from '../../Consts/urls'
-
-// context
-import { CartContext } from '../../Context/Cart'
-import { DebtorContext } from '../../Context/Debtor'
-
-// @types
-import { DebtorProps } from '../../@types/Identify'
+// validator
+import identifyValidate from '../../Validation/identify';
 
 const Identify: React.FC = () => {
   const [name, setName] = React.useState('')
@@ -59,17 +54,23 @@ const Identify: React.FC = () => {
   }
 
   React.useEffect(() => {
-    if (name && email && phone && validEmail && name !== '' && email !== '' && phone.length >= 16) return setAllOk(true)
-    setAllOk(false)
+    if (name && email && phone && validEmail && name !== '' && email !== '' && phone.length >= 16) {
+      return setAllOk(true)
+    }else {
+      setAllOk(false)
+    }
   }, [name, email, phone, validEmail])
 
-  function saveDebtorDataOnCookies(name: string, email: string, phone: string) {
-    debtorContext.handleAddDebtor(name, email, phone)
+  async function saveDebtorDataOnCookies(name: string, email: string, phone: string) {
+    await debtorContext.handleAddDebtor(name, email, phone)
   }
 
   async function generatePayment() {
     const debtorReport: DebtorProps = await debtorContext.getDebtorData()
     const [cartReport] = await cartContext.getCartReport()
+
+    console.log(debtorReport)
+    console.log(cartReport)
 
     if (debtorReport && cartReport) {
       const data = {
@@ -82,9 +83,9 @@ const Identify: React.FC = () => {
 
       const response = await Api.post(PAYMENT_GENERATE, data)
 
-      if (response.status !== 200 && !response.data.txid || !response.data.chargeRaw || !response.data.qrcode) {
-        return alert('Não foi possivel gerar o pagamento, entre em contato com o suporte no @deliratrix no instagram!')
-      }
+      const payload = {name, email, phone}
+      const validate = await identifyValidate(payload)
+      if (!(validate?.valid)) return alert('Erro: '+validate?.error)    
 
       return history.push({
         pathname: '/pagamento',
@@ -99,7 +100,6 @@ const Identify: React.FC = () => {
       alert('Não foi possivel gerar o pagamento. por favor, tente novamente')
     }
   }
-
 
   return <IdentifyContaier infoDisplayed={infoDisplayed}>
    <main>

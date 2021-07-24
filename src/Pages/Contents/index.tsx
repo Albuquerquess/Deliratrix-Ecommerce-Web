@@ -8,6 +8,7 @@ import { contentDataProps, paramsProps } from '../../@types/Content'
 import SearchInput from '../../Components/SearchInput';
 import Box from '../../Components/Box'
 import Card from '../../Components/Card'
+import Loading from '../../Components/Loading'
 
 // api
 import Api from '../../Services/Api'
@@ -26,8 +27,6 @@ const Contents: React.FC = () => {
   const [contentData, setContentData] = React.useState<contentDataProps[]>([])
   
   async function getContentOnbackendbyType() {
-    console.log({params})
-    console.log(type in typeReferenceOnBackend)
     if (type in typeReferenceOnBackend) {
 
       const response = await Api.get(INDEX, {params: {type: typeReferenceOnBackend[type]}})
@@ -45,7 +44,7 @@ const Contents: React.FC = () => {
   return <>
       <SearchInput value={search} setValue={setSearch} onlyMobile/>
       <Box title={type}>
-        {contentData && contentData.map(content => <Card
+        {contentData ? contentData.map(content => <Card
           title={content.title}
           description={content.desc}
           image={content.url}
@@ -54,7 +53,7 @@ const Contents: React.FC = () => {
           id={content.id}
           type={content.type}
           category={content.category}
-          />)}
+          />) : <Loading />}
       </Box>
   </>;
 }

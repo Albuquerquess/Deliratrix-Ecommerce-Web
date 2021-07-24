@@ -6,12 +6,12 @@ import Box from '../../Components/Box'
 import Card from '../../Components/Card'
 import CardButton from '../../Components/CardButton';
 import SearchInput from '../../Components/SearchInput';
-
+import Loading from '../../Components/Loading'
 // Services
 import Api from '../../Services/Api'
 
 // Consts
-import { INDEX_BESTS } from '../../Consts/urls'
+import { INDEX_BESTS, UUID } from '../../Consts/urls'
 
 // @types
 import { ContentDataprops } from '../../@types/Home'
@@ -34,12 +34,12 @@ const Home: React.FC = () => {
         break
     }
   }
+  // Api.get(UUID).then(response => {console.log(response.data)})
 
   React.useEffect(() => {
     getContentOnbackend('service')
     getContentOnbackend('product')
   }, [])
-
   return <>
     <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
     <Header />
@@ -57,7 +57,7 @@ const Home: React.FC = () => {
         id={service.id}
         />}) 
           : 
-        <p>Não foi possivel buscar as informações</p>}    
+        <Loading />}    
       <CardButton label="Ver todos os produtos" to="/explorar/Produtos"/>
     </Box>
 

@@ -44,7 +44,52 @@ const GlobalStyles = createGlobalStyle`
         p {
             letter-spacing: .1rem;
         }
-       
+
+        input, select, textarea {
+            font-weight: bold;
+        }
+
+        select option {
+            
+            background: var(--color-gray-4);
+            color: var(--color-white);
+        }
+
+        optgroup { 
+            font-style: italic;
+            color: var(--color-black);
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
+
+        /* placeholder */
+        input::placeholder {
+            color: var(--color-white);
+            opacity: .5;
+        }
+
+        input:-ms-input-placeholder { 
+            color: var(--color-white);
+            opacity: .5;
+
+        }
+
+        input::-ms-input-placeholder {
+            color: var(--color-white);
+            opacity: .5;
+
+        }
+    
        }
     body > div#root {
         width: 100%;

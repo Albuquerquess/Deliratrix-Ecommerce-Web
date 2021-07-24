@@ -12,7 +12,7 @@ import Rate from '../Rate';
 // Styles
 import { CardContainer, CardRemove } from './styles';
 
-const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage, redirect}) => {
+const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage, redirect=true}) => {
 
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 

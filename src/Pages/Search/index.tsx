@@ -13,6 +13,7 @@ import SearchInput from '../../Components/SearchInput'
 import Box from '../../Components/Box'
 import Card from '../../Components/Card'
 import Select from 'react-select';
+import Loading from '../../Components/Loading';
 
 // Assets
 import Sort from '../../Assets/Components/SearchPage/Sort'
@@ -103,7 +104,7 @@ const Search: React.FC = () => {
       </header>
 
       <Box>
-        {searchData && searchData.map(content => <Card
+        {searchData ? searchData.map(content => <Card
           title={content.title}
           description={content.desc}
           image={content.url}
@@ -111,7 +112,7 @@ const Search: React.FC = () => {
           rate={content.rate}
           type={content.type}
           category={content.category}
-          id={1} />)}
+          id={1} />) : <Loading />}
       </Box>
   </SearchContainer>;
 }

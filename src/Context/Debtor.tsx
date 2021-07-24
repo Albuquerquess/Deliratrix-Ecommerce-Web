@@ -15,13 +15,13 @@ export const DebtorProvider: React.FC = ({ children }) => {
     const [debtor, setDebtor] = React.useState<DebtorProps>()
     const cookies = new Cookies();
 
-    function handleAddDebtor(name: string, email: string, phone: string) {
+    async function handleAddDebtor(name: string, email: string, phone: string) {
         if (name && email && phone) {
             cookies.set('name', name)
             cookies.set('email', email)
             cookies.set('phone', phone)
 
-            return setDebtor({name, email, phone})
+            return await setDebtor({name, email, phone})
         }else {
             alert('Não foi possivel registrar os dados!')
         }
