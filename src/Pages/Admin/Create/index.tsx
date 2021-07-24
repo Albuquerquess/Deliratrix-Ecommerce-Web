@@ -152,7 +152,7 @@ const Create: React.FC = () => {
         </section>
         <section id="preview">
           <h1>Preview</h1>
-          <Card title={title} description={desc} value={String(prices[0].price)} image={previewThumb} redirect={false}/>
+          <Card title={title} description={desc} value={prices[0].price} image={previewThumb} redirect={false}/>
         </section>
       </main>
   </AdminCreateContainer>;

@@ -13,10 +13,9 @@ import Rate from '../Rate';
 import { CardContainer, CardRemove } from './styles';
 
 const Card: React.FC<CardProps> = ({title, description, image, value, rate, type, category, id, removeDisplayed, handleRemove, onCartPage, redirect=true}) => {
-
+  const priceRef = value ? value : 0
   const widthScreen = getWindowDimensions().width 
   const size = widthScreen < Number(breakpoints.tablet.split('p')[0]) ? 20 : 30 
-  
   return <>
     <CardContainer thumb={image} onCartPage={onCartPage}>
       <Link to={redirect ? `/visualizar/${id}`: '#'}>
@@ -31,7 +30,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate, type
             </div>
             <p>{description}</p>
             <footer>
-              <span>{value}</span>
+              <span>{priceRef.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
               <Button to={redirect ? `/visualizar/${id}`: '#'} label="Comprar!"/>
             </footer>
           </section>

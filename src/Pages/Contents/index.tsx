@@ -48,7 +48,7 @@ const Contents: React.FC = () => {
           title={content.title}
           description={content.desc}
           image={content.url}
-          value={content.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          value={content.price}
           rate={content.rate}
           id={content.id}
           type={content.type}

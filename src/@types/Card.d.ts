@@ -2,7 +2,7 @@ export interface CardProps {
     title?: string;
     rate?: number;
     description?: string;
-    value?: string;
+    value?: number;
     image?: string;
     id?: number;
     type?: string;

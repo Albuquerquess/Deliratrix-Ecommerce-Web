@@ -45,12 +45,11 @@ const Home: React.FC = () => {
     <Header />
     <Box title="Serviços mais contratados">
       {servicesData ? servicesData.map(service => {
-        const priceRef = service.price?.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
       return <Card 
         title={service.title}
         description={service.desc}
         image={service.url}
-        value={priceRef || 'Não foi possivel resgatar o valor'}
+        value={service.price}
         rate={4}
         type="sexo"
         category="orgia"
@@ -63,13 +62,12 @@ const Home: React.FC = () => {
 
     <Box title="Produtos mais comprados">
       {productsData ? productsData.map(product => {
-        const priceRef = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
         
       return <Card 
         title={product.title}
         description={product.desc}
         image={product.url}
-        value={priceRef}
+        value={product.price}
         rate={4}
         type="sexo"
         category="orgia"

@@ -47,7 +47,7 @@ const Summary: React.FC<SumaryProps> = ({ buttonsDisplayed }) => {
             </ol>
             <span id="button-container">
               <Button label="Escolher mais produtos" outline to="/"/>
-              <Button label="Continuar" to="/identificacao"/>
+              <Button label="Continuar" to="/identificacao" disabled={summary.finalvalue === 0}/>
             </span>
           </div>
         </main>

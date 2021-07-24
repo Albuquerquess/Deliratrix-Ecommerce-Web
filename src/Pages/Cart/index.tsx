@@ -15,13 +15,6 @@ import Api from '../../Services/Api';
 // styles
 import { CardContainer } from './styles';
 
-
-
-
-
-
-
-
 const Cart: React.FC = () => {
 
   const [contentData, setContentData] = React.useState<contentProps[]>([])
@@ -73,7 +66,7 @@ const Cart: React.FC = () => {
             title={content.title}
             description={content.desc}
             image={content.url}
-            value={value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}
+            value={value}
             rate={content.rate}
             type={content.type}
             category={content.category}
@@ -89,7 +82,7 @@ const Cart: React.FC = () => {
           title={content.title}
           description={content.desc}
           image={content.url}
-          value={content.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          value={content.price}
           rate={content.rate}
           type={content.type}
           category={content.category}
