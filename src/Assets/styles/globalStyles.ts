@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
         background-color: var(--color-black);
         color: var(--color-white);
 
-        font-size: 62.5%;
+        font-size: 100%;
         font-family: 'Ubuntu', sans-serif;
     }
 
