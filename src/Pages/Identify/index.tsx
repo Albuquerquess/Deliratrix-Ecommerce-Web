@@ -145,7 +145,7 @@ const Identify: React.FC = () => {
           <InputMask
             mask="(99) 9 9999 9999"
             alwaysShowMask={false}
-             maskChar={null}
+             //maskChar={null}
             type="tel"
             placeholder="Ex: (99) 9 9999 9999"
             value={phone}
