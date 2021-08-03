@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 // Styles
 import { FooterContainer, FooterCopy } from './styles';
@@ -26,16 +27,16 @@ const Footer: React.FC = () => {
         <div>
           <h2>Navegação</h2>
           <ul>
-            <li>Home</li>
-            <li>Sobre</li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/sobre">Sobre</Link></li>
           </ul>
         </div>
 
         <div>
           <h2>Catálogo</h2>
           <ul>
-            <li>Serviços</li>
-            <li>Produtos</li>
+            <li><Link to="/explorar/Servicos">Serviços</Link></li>
+            <li><Link to="/explorar/Produtos">Produtos</Link></li>
           </ul>
         </div>
       </section>

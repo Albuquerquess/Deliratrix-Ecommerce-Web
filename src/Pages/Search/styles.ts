@@ -72,6 +72,7 @@ export const SearchContainer = styled.div<styledSearchParams>`
 
             .select-component__placeholder {
                 color: var(--color-white);
+                font-size: 1rem;
             }
 
             .select-component__menu {
@@ -82,6 +83,8 @@ export const SearchContainer = styled.div<styledSearchParams>`
                 }
 
             }
+
+            /* End select componet styles */
 
             svg#sort-icon {
                 display: none;
