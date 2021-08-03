@@ -1,3 +1,4 @@
+import qs from 'qs';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 // @types
@@ -44,7 +45,9 @@ const Create: React.FC = () => {
     const formData = new FormData()
     formData.append('file', thumb)
 
-    const create = await Api.post(CREATE, formData, {params: payload})
+    const create = await Api.post(CREATE, formData, {params: payload, paramsSerializer: params => {
+      return qs.stringify(params)
+    }})
     if (create.status === 200) return history.push('/admin')
     setLoadVisible(false)
     return alert('Erro ao criar o conteúdo, verifique a sua conexão e entre em contato com o suporte. Status code: '+create.status)
