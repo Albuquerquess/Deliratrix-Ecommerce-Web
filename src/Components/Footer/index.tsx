@@ -6,7 +6,6 @@ import { FooterContainer, FooterCopy } from './styles';
 import DeliraStore from '../../Assets/Components/Footer/Delirastore'
 
 // Assets
-import Facebook from '../../Assets/Components/Footer/Facebook'
 import Instagram from '../../Assets/Components/Footer/Instagram'
 import Twitter from '../../Assets/Components/Footer/Twitter'
 
@@ -44,7 +43,7 @@ const Footer: React.FC = () => {
 </FooterContainer>
 <FooterCopy>
       <div id="copy-wrapper">
-        <span>2021 Copyright: <strong>Delirastore</strong></span>
+        <span id="copy">2021 Copyright: <strong>Delirastore</strong></span>
         <section>
           <a href="http://www.google.com">Projeto: <strong>Jonathan Weslley</strong></a>
           <a href="http://www.google.com">Desenvolvimento: <strong>Gustavo Albuquerque</strong></a>
