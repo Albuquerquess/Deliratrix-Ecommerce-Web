@@ -3,7 +3,7 @@ import breakpoints from '../../Assets/styles/breakpoints';
 
 export const FooterContainer = styled.footer`
   width: 100%;
-  height: 20rem;
+  height: 15rem;
   background-color: var(--color-gray);
 
   display: flex;
@@ -29,13 +29,14 @@ export const FooterContainer = styled.footer`
       align-items: flex-start;
       justify-content: space-between;
 
-      p {
+      p#footer-desc {
         letter-spacing: .1rem;
         margin: .5rem 0;
+        font-size: 1rem;
       }
 
       div {
-        width: 50%;
+        width: 30%;
 
         display: flex;
         align-items: center;
@@ -110,7 +111,11 @@ export const FooterContainer = styled.footer`
       div {
         margin-top: 1rem;
 
-        width: 50%;
+        width: 40%;
+
+        a > svg {
+          width: initial;
+        }
       }
     }
     
@@ -155,8 +160,11 @@ export const FooterCopy = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    section > a:first-child {
+    section {
+      font-size: 1rem;
+      a:first-child {
       margin-right: 1rem;
+      }
     }
 
   }
