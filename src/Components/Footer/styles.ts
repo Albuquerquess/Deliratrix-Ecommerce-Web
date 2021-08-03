@@ -160,6 +160,10 @@ export const FooterCopy = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    span#copy {
+      font-size: 1rem;
+    }
+
     section {
       font-size: 1rem;
       a:first-child {
