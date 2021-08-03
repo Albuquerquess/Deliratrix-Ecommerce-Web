@@ -36,7 +36,7 @@ export const FooterContainer = styled.footer`
       }
 
       div {
-        width: 50%;
+        width: 30%;
 
         display: flex;
         align-items: center;
@@ -111,7 +111,11 @@ export const FooterContainer = styled.footer`
       div {
         margin-top: 1rem;
 
-        width: 50%;
+        width: 40%;
+
+        a > svg {
+          width: initial;
+        }
       }
     }
     
