@@ -73,21 +73,17 @@ const GlobalStyles = createGlobalStyle`
         }
 
         /* placeholder */
-        input::placeholder {
-            color: var(--color-white);
-            opacity: .5;
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: var(---color-white);
+            opacity: 1; /* Firefox */
         }
 
-        input:-ms-input-placeholder { 
-            color: var(--color-white);
-            opacity: .5;
-
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: var(---color-white);
         }
 
-        input::-ms-input-placeholder {
-            color: var(--color-white);
-            opacity: .5;
-
+        ::-ms-input-placeholder { /* Microsoft Edge */
+        color: var(---color-white);
         }
     
        }
