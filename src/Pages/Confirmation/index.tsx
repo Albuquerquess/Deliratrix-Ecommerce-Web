@@ -1,14 +1,9 @@
 import React from 'react';
 // @types
-import { RouteProps, Link } from 'react-router-dom';
-import { contentProps, txidProps, PaymentConfirmedProps } from '../../@types/Confirmation';
+import { RouteProps } from 'react-router-dom';
+import { contentProps, PaymentConfirmedProps, txidProps } from '../../@types/Confirmation';
 // assets
 import Thanks from '../../Assets/Pages/Confirmation/thanks.svg';
-// components
-import Box from '../../Components/Box';
-import Card from '../../Components/Card';
-import Loading from '../../Components/Loading';
-
 // consts
 import { INDEX, PAYMENT_CONFIRMED } from '../../Consts/urls';
 // Api
@@ -31,13 +26,10 @@ const Confirmation: React.FC<RouteProps> = (history) => {
       if (isPaid.error) {
          setConfirmedPayment(false)
          setPaymentStatusCode(500)
-      }
-
-      if (isPaid.paid === true && response.status === 200 ){
+      }else if (isPaid.paid === true && response.status === 200 ){
          setConfirmedPayment(true)
          setPaymentStatusCode(200)
-      }
-      if (isPaid.paid === false && response.status === 404) {
+      }else if (isPaid.paid === false && response.status === 404) {
          setConfirmedPayment(false)
          setPaymentStatusCode(404)
       }
@@ -56,14 +48,22 @@ const Confirmation: React.FC<RouteProps> = (history) => {
   
   return <>
      <ConfirmationContainer>
-  {
+  {   
      paymentStatusCode === 200 && confirmedPayment === true ? 
          <main>
             <h1>Muito obrigada por chegar até aqui!</h1>
             <h2>Logo seu pedido será enviado por email.</h2>
             <img src={Thanks} alt="muito obrigado" />
-            <span>Agora você poderá despertar a chama dos seus fetiches mais intensos.</span>
-         </main> : <h1>Não foi possível encontrar o código de verificação de pagamento. <Link to="/">Clique aqui para voltar para a Home</Link> </h1>
+               <span>Agora você poderá despertar a chama dos seus fetiches mais intensos.</span>
+         </main> : paymentStatusCode === 404 ? 
+            <main>
+               <h1>Não encontramos o seu código de confirmação de pagamento.</h1>
+               <h2>envie o <strong>comprovante de pagamento</strong> para <a href="https://www.instagram.com/deliratrix/">@deliratrix</a></h2>
+            </main> : paymentStatusCode !== 200 && paymentStatusCode !== 404 &&
+               <main>
+                  <h1>Ocorreu um erro interno ao buscar o seu comprovante de pagamento</h1>
+                  <h2>Isso não indica que o pagamento não foi realizado, Se a compra ocorreu, envie o <strong>comprovante de pagamento</strong> para <a href="https://www.instagram.com/deliratrix/">@deliratrix</a></h2>
+               </main>
   }
       </ConfirmationContainer>
  

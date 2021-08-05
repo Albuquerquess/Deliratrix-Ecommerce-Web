@@ -1,20 +1,17 @@
 import React from 'react';
-
-// Components
-import Header from '../../Components/Header'
-import Box from '../../Components/Box'
-import Card from '../../Components/Card'
-import CardButton from '../../Components/CardButton';
-import SearchInput from '../../Components/SearchInput';
-import Loading from '../../Components/Loading'
-// Services
-import Api from '../../Services/Api'
-
-// Consts
-import { INDEX_BESTS, UUID } from '../../Consts/urls'
-
 // @types
-import { ContentDataprops } from '../../@types/Home'
+import { ContentDataprops } from '../../@types/Home';
+import Box from '../../Components/Box';
+import Card from '../../Components/Card';
+import CardButton from '../../Components/CardButton';
+// Components
+import Header from '../../Components/Header';
+import Loading from '../../Components/Loading';
+import SearchInput from '../../Components/SearchInput';
+// Consts
+import { INDEX_BESTS } from '../../Consts/urls';
+// Services
+import Api from '../../Services/Api';
 
 const Home: React.FC = () => {
 
@@ -34,7 +31,6 @@ const Home: React.FC = () => {
         break
     }
   }
-  // Api.get(UUID).then(response => {console.log(response.data)})
 
   React.useEffect(() => {
     getContentOnbackend('service')

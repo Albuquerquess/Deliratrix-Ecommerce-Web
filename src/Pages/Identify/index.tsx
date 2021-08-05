@@ -3,10 +3,8 @@ import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
 // @types
 import { DebtorProps } from '../../@types/Identify';
-import Box from '../../Components/Box';
 // components
 import Button from '../../Components/Button';
-import Card from '../../Components/Card';
 // consts
 import { PAYMENT_GENERATE } from '../../Consts/urls';
 // context
@@ -14,10 +12,10 @@ import { CartContext } from '../../Context/Cart';
 import { DebtorContext } from '../../Context/Debtor';
 // Api
 import Api from '../../Services/Api';
-// styles
-import { IdentifyContaier } from './styles';
 // validator
 import identifyValidate from '../../Validation/identify';
+// styles
+import { IdentifyContaier } from './styles';
 
 const Identify: React.FC = () => {
   const [name, setName] = React.useState('')
@@ -68,9 +66,6 @@ const Identify: React.FC = () => {
   async function generatePayment() {
     const debtorReport: DebtorProps = await debtorContext.getDebtorData()
     const [cartReport] = await cartContext.getCartReport()
-
-    console.log(debtorReport)
-    console.log(cartReport)
 
     if (debtorReport && cartReport) {
       const data = {
