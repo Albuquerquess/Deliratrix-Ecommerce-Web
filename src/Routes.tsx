@@ -40,7 +40,7 @@ const Routes: React.FC = () => {
             <Route exact path="/pagamento" component={Payment}/>
             <Route exact path="/admin" component={Admin}/>
             <Route exact path="/admin/cadastrar" component={Cadastrar}/>
-            <Route exact path="/pagamento/confirmacao/:txid" component={Confirmation}/>
+            <Route exact path="/pagamento/confirmacao" component={Confirmation}/>
             <Route exact path="/sobre" component={Sobre}/>
           </Container>
         </Switch>

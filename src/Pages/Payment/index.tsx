@@ -1,19 +1,50 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom'
+
 // @types
 import { RouteProps } from 'react-router-dom';
-import { PaymentProps } from '../../@types/Payment';
+import { PaymentProps, PaymentConfirmedProps } from '../../@types/Payment';
 import Copy from '../../Assets/Pages/Payment/Copy';
 // Assets
 import PixIcon from '../../Assets/Pages/Payment/pix.svg';
 // components
 import Sumary from '../../Components/Summary';
 import { PaymentContainer } from './styles';
+// Api
+import Api from '../../Services/Api'
+//Consts
+import { PAYMENT_CONFIRMED } from '../../Consts/urls'
 
 const Payment: React.FC<RouteProps> = (history) => {
   const states = history.location?.state as PaymentProps
   const qrcode = states.qrcode
   const txid = states.txid
   const chargeRaw = states.chargeRaw
+
+  const redirect = useHistory()
+
+  async function isPaid() {
+    const response = await Api.get(PAYMENT_CONFIRMED, {params: {txid: txid}})
+
+    const isPaid: PaymentConfirmedProps = response.data
+
+    if(isPaid.error) return 
+
+    if(isPaid.paid === true) {
+      redirect.push({
+        pathname: '/pagamento/confirmacao',
+        state: {txid: '7551ab7867362c97bb24cd21d10f1d68'}
+      })
+    }
+  }
+  
+  React.useEffect(() => {
+    isPaid()
+    redirect.push({
+      pathname: '/pagamento/confirmacao',
+      state: {txid: '7551ab7867362c97bb24cd21d10f1d68'}
+    })
+  }, [])
 
   return <PaymentContainer>
     <h1>Pagamento</h1>
