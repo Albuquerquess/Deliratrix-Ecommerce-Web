@@ -162,8 +162,9 @@ export const ViewContainer = styled.div<styledViewProps>`
                 margin-bottom: 2rem;
             }
 
-            p {
+            p#desc {
                 font-size: 1.5rem;
+                line-height: 1;
             }
         }
     }
