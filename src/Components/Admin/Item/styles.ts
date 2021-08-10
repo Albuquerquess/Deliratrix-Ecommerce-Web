@@ -24,6 +24,7 @@ export const ItemContainer = styled.div`
 
         & > span:first-child {
             font-size: 1.5rem;
+            align-self: flex-start;
         }
         & > span:last-child {
             align-self: center;
