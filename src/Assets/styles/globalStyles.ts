@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-size: 1.6rem;
-        line-height: 17px;
+        line-height: 1;
 
         display: flex;
         align-items: center;
