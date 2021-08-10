@@ -46,7 +46,7 @@ const Home: React.FC = () => {
         description={service.desc}
         image={service.url}
         value={service.price}
-        rate={4}
+        rate={service.rate}
         type="sexo"
         category="orgia"
         id={service.id}
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
         description={product.desc}
         image={product.url}
         value={product.price}
-        rate={4}
+        rate={product.rate}
         type="sexo"
         category="orgia"
         id={product.id}
