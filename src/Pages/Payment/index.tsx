@@ -4,9 +4,6 @@ import { RouteProps, useHistory } from 'react-router-dom';
 import { PaymentConfirmedProps, PaymentProps } from '../../@types/Payment';
 //assets
 import Copy from '../../Assets/Pages/Payment/Copy';
-//utils
-import sleep from '../../Utils/sleep'
-
 // Assets
 import PixIcon from '../../Assets/Pages/Payment/pix.svg';
 // components
@@ -16,6 +13,7 @@ import { PAYMENT_CONFIRMED } from '../../Consts/urls';
 // Api
 import Api from '../../Services/Api';
 import { PaymentContainer } from './styles';
+
 
 const Payment: React.FC<RouteProps> = (history) => {
   const states = history.location?.state as PaymentProps
