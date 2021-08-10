@@ -45,8 +45,8 @@ const Footer: React.FC = () => {
       <div id="copy-wrapper">
         <span id="copy">2021 Copyright: <strong>Delirastore</strong></span>
         <section>
-          <a href="http://www.google.com">Projeto: <strong>Jonathan Weslley</strong></a>
-          <a href="http://www.google.com">Desenvolvimento: <strong>Gustavo Albuquerque</strong></a>
+          <a target="_blank" href="https://www.behance.net/johnw3s">Projeto: <strong>Jonathan Weslley</strong></a>
+          <a target="_blank" href="https://api.whatsapp.com/send?phone=5584996465565&text=Ol%C3%A1%2C%20vim%20pelo%20deliratrix.com.br!">Desenvolvimento: <strong>Gustavo Albuquerque</strong></a>
         </section>
       </div>
     </FooterCopy>
