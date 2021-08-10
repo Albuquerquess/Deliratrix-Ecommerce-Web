@@ -21,6 +21,8 @@ import Identify from './Pages/Identify';
 import Payment from './Pages/Payment';
 import Search from './Pages/Search';
 import View from './Pages/View';
+//utils
+import ScrollToTop from './Utils/scrollToTop'
 
 const Routes: React.FC = () => {
   return <BrowserRouter>
@@ -28,6 +30,7 @@ const Routes: React.FC = () => {
     <DebtorProvider>
       <CartProvider>
         <Loading disabled={false}/>
+        <ScrollToTop />
         <Switch>
           <Container>
             <Navigation />
