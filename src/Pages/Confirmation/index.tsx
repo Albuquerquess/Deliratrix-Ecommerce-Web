@@ -45,6 +45,10 @@ const Confirmation: React.FC<RouteProps> = (history) => {
       getContentOnBackend()
       checkPaymentConfirmation(txid)
     }, [])
+
+    setInterval(function() { window.location=window.location;},5000);
+
+
   
   return <>
      <ConfirmationContainer>
