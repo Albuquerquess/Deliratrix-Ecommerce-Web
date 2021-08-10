@@ -14,15 +14,19 @@ export const ItemContainer = styled.div`
     div.item-wrapper {
         width: 95%;
         height: 100%;
+        max-height: 80%;
+        overflow: hidden;
 
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
+
 
         & > span:first-child {
             font-size: 1.5rem;
         }
         & > span:last-child {
+            align-self: center;
             img {
                 cursor: pointer;
             }
