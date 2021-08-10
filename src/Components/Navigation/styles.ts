@@ -17,6 +17,7 @@ export const NavContainer = styled.nav<StyledNavigationProps>`
     padding: 1rem 0;
 
     z-index: ${zIndex.topAll};
+    margin-bottom: 2rem;
 
     svg#sidebar-open {
         display: none;
