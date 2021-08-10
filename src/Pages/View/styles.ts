@@ -8,6 +8,7 @@ import breakpoints from '../../Assets/styles/breakpoints';
 
 export const ViewContainer = styled.div<styledViewProps>`
     margin-top: 2rem;
+    width: 100%;
 
     nav {
         margin-bottom: 2rem;

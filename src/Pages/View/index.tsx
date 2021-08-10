@@ -37,17 +37,15 @@ const View: React.FC = () => {
 
     const responseUniqueContent = await Api.get(INDEX_SHOW, {params: {id: id}})
     setContentData(responseUniqueContent.data)
-    console.log(contentData)
   }
   async function getRelatedContentOnBackend(category: string | undefined, type: string | undefined) {
     const responseContentByCategory = await Api.get(INDEX_CATEGORY, {params: {category: category, type: type}})
-    
     setContentDataByCategory(responseContentByCategory.data)
   }
 
   React.useEffect(() => {
     getUniqueContentOnBackend(String(id))
-  }, [])
+  }, [id])
 
   React.useEffect(() => {
     const category = contentData?.content.category 
@@ -55,12 +53,12 @@ const View: React.FC = () => {
     getRelatedContentOnBackend(category, type)
   }, [contentData])
 
- 
-  return <>{contentData && contentData.content ? <ViewContainer image={contentData?.content.url}>
+
+  return <>{contentData && contentData.content ? <ViewContainer image={contentData.content.url}>
   <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
 
   <nav>
-    <span>{contentData.content.type }  {'>'}  {contentData?.content.category }  {'>'}  {contentData?.content.type} </span>
+    <span>{contentData.content.type }  {'>'}  {contentData.content.category }  {'>'}  {contentData.content.title} </span>
   </nav>
   <main id="view-main">
     {contentData.content.id ? <>
