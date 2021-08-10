@@ -31,8 +31,7 @@ const Cart: React.FC = () => {
     }
     
   async function getContentOnBackend() {
-    const responseContentByCategory = await Api.get(INDEX, {params: {type: 'service'}})
-    // Fazer um show o ID no param e pegar o type e category. Fazer um index category com o type e category do ID.
+    const responseContentByCategory = await Api.get(INDEX, {params: {type: 'product'}})
     
     setContentData(responseContentByCategory.data)
   }
@@ -77,17 +76,6 @@ const Cart: React.FC = () => {
      <Sumary buttonsDisplayed />
 
     </CardContainer>
-    <Box title="Produtos relacionados">
-      {contentData && contentData.map(content => <Card
-          title={content.title}
-          description={content.desc}
-          image={content.url}
-          value={content.price}
-          rate={content.rate}
-          type={content.type}
-          category={content.category}
-          id={content.id} />)}
-    </Box>
   </>
 }
 
