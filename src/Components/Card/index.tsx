@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({title, description, image, value, rate, type
   return <>
     <CardContainer thumb={image} onCartPage={onCartPage}>
       <Link to={redirect ? `/visualizar/${id}`: '#'}>
-        <main id="card-main">
+        <main className="card-main" key={id}>
           <section className="card-thumb-container">
             <div className="thumb"></div>
           </section>
