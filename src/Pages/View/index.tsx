@@ -101,15 +101,17 @@ const View: React.FC = () => {
   <Box title="Produtos relacionados">
   {contentDataByCategory && contentDataByCategory.map((content) => {
 
-    return <Card
-    title={content.title}
-    description={content.desc}
-    image={content.url}
-    value={content.price}
-    rate={content.rate}
-    type={content.type}
-    category={content.category}
-    id={content.id} />
+    if (content.id !== Number(id)) {
+      return <Card
+        title={content.title}
+        description={content.desc}
+        image={content.url}
+        value={content.price}
+        rate={content.rate}
+        type={content.type}
+        category={content.category}
+        id={content.id} />
+    }
   }
   )}
   </Box>
