@@ -47,9 +47,8 @@ const Create: React.FC = () => {
 
     const create = await Api.post(CREATE, formData, {
       params: payload, paramsSerializer: params => {
-      return qs.stringify(params)
-    }, 
-      headers: {"Access-Control-Allow-Origin": "*"}})
+      return qs.stringify(params)}
+    })
     if (create.status === 200) return history.push('/admin')
     setLoadVisible(false)
     return alert('Erro ao criar o conteúdo, verifique a sua conexão e entre em contato com o suporte. Status code: '+create.status)
@@ -157,7 +156,7 @@ const Create: React.FC = () => {
         </section>
         <section id="preview">
           <h1>Preview</h1>
-          <Card title={title} description={desc} value={prices[0].price} image={previewThumb} redirect={false}/>
+          <Card title={title} description={desc} value={prices[0].price} image={previewThumb} redirect={false} rate={5}/>
         </section>
       </main>
   </AdminCreateContainer>;
