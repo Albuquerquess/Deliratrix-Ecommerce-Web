@@ -21,7 +21,7 @@ export const DebtorProvider: React.FC = ({ children }) => {
             cookies.set('email', email)
             cookies.set('phone', phone)
 
-            return await setDebtor({name, email, phone})
+            return setDebtor({name, email, phone})
         }else {
             alert('Não foi possivel registrar os dados!')
         }
