@@ -60,20 +60,20 @@ const Identify: React.FC = () => {
   }, [name, email, phone, validEmail])
 
   async function saveDebtorDataOnCookies(name: string, email: string, phone: string) {
-    await debtorContext.handleAddDebtor(name, email, phone)
+    debtorContext.handleAddDebtor(name, email, phone)
   }
 
   async function generatePayment() {
-    const debtorReport: DebtorProps = await debtorContext.getDebtorData()
+    const debtorReport: DebtorProps = debtorContext.getDebtorData()
     const [cartReport] = await cartContext.getCartReport()
 
-    if (debtorReport && cartReport) {
+    if (cartReport) {
       const data = {
         cart: {
           contents: cartReport.contents,
           prices: cartReport.prices
         }, 
-        debtor: debtorReport
+        debtor: {name, email, phone}
       }
 
       const response = await Api.post(PAYMENT_GENERATE, data)
@@ -99,7 +99,7 @@ const Identify: React.FC = () => {
   return <IdentifyContaier infoDisplayed={infoDisplayed}>
    <main>
       <h1>Identificação</h1>
-      <h2>As informações serão usadas para o envio dos materiais solicitados.</h2>
+      <h2 id="subtitle">As informações serão usadas para o envio dos materiais solicitados.</h2>
       
       <form onSubmit={(e) => {
           e.preventDefault()
