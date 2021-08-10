@@ -71,7 +71,7 @@ const Home: React.FC = () => {
         />}) 
           :
         <p>Não foi possivel buscar as informações</p>}    
-      <CardButton label="Ver todos os serviços" to="/explorar/Servicos"/>
+      <CardButton label="Ver todos os serviços" to="/explorar/Serviços"/>
     </Box>
     
  </>
