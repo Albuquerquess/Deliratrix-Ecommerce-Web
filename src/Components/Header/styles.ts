@@ -20,6 +20,7 @@ export const HeaderContainer = styled.header<StylesHeaderProps>`
   }
 
   @media (max-width: ${breakpoints.tablet}) {
+    height: 25vh;
       img {
           width: 100%;
           height: auto;
