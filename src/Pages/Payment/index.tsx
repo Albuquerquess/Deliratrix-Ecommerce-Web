@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteProps, useHistory } from 'react-router-dom';
 // types
-import { PaymentConfirmedProps, PaymentProps } from '../../@types/Payment';
+import { PaymentConfirmedProps, PaymentProps } from '../../types/Payment';
 //assets
 import Copy from '../../Assets/Pages/Payment/Copy';
 // Assets

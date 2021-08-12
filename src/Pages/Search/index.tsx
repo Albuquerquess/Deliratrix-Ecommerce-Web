@@ -6,7 +6,7 @@ import { useDebounce } from 'use-lodash-debounce'
 import { SearchContainer } from './styles';
 
 // @types
-import { searchParamsProps, searchDataProps } from '../../@types/searchPage';
+import { searchParamsProps, searchDataProps } from '../../types/searchPage';
 
 // components
 import SearchInput from '../../Components/SearchInput'

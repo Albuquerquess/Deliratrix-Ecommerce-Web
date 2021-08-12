@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from 'react-loader-spinner'
-import {LoadingProps} from '../../@types/Loading'
+import {LoadingProps} from '../../types/Loading'
 
 const Loading: React.FC<LoadingProps> = ({display}) => {
   return  <Loader

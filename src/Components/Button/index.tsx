@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @types
-import { ButtonProps } from '../../@types/Button';
+import { ButtonProps } from '../../types/Button';
 // styles
 import { StyledLabel } from './styles';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 // @types
-import { ItemProps } from '../../../@types/Admin';
+import { ItemProps } from '../../../types/Admin';
 // assets
 import deleteSVG from '../../../Assets/Pages/Admin/delete.svg';
 // consts

@@ -2,7 +2,7 @@ import React from 'react';
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
 // @types
-import { DebtorProps } from '../../@types/Identify';
+import { DebtorProps } from '../../types/Identify';
 // components
 import Button from '../../Components/Button';
 // consts

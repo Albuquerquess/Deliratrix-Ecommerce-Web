@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 // @types
-import { StyledSidebarProps, StyledNavigationProps } from '../../@types/Navigation'
+import { StyledSidebarProps, StyledNavigationProps } from '../../types/Navigation'
 import zIndex from '../../Assets/styles/zIndex';
 
 export const NavContainer = styled.nav<StyledNavigationProps>`

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { StyledIdentifyProps } from '../../@types/Identify';
+import { StyledIdentifyProps } from '../../types/Identify';
 
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';

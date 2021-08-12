@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
-import { StylesHeaderProps } from '../../@types/Header'
+import { StylesHeaderProps } from '../../types/Header'
 
 export const HeaderContainer = styled.header<StylesHeaderProps>`
     margin: 3rem 0;

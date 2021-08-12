@@ -7,7 +7,7 @@ import { SidebarContainer } from './styles';
 import SidebarClose from '../../Assets/Components/Navigation/Sidebar/SidebarClose'
 
 // @types
-import { SidebarProps } from '../../@types/Navigation'
+import { SidebarProps } from '../../types/Navigation'
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, handleClickFunction }) => {
     

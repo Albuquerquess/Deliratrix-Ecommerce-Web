@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { StyledSumaryProps } from '../../@types/Sumary'
+import { StyledSumaryProps } from '../../types/Sumary'
 
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';

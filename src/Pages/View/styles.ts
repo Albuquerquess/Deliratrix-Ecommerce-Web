@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { styledViewProps } from '../../@types/View'
+import { styledViewProps } from '../../types/View'
 
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';

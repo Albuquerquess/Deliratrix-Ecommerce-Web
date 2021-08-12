@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SidebarButtonProps } from '../../../../@types/Navigation'
+import { SidebarButtonProps } from '../../../../types/Navigation'
 
 const SidebarClose: React.FC<SidebarButtonProps> = ({ clickFunction }) => {
   

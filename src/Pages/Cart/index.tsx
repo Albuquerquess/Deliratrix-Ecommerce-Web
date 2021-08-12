@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { string } from 'yup/lib/locale';
 // @types
-import { cartDataProps, contentProps } from '../../@types/Cart';
+import { cartDataProps, contentProps } from '../../types/Cart';
 import Box from '../../Components/Box';
 // components
 import Card from '../../Components/Card';

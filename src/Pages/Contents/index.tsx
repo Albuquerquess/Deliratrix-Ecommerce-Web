@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, withRouter } from 'react-router-dom';
 // @types
-import { contentDataProps, paramsProps } from '../../@types/Content';
+import { contentDataProps, paramsProps } from '../../types/Content';
 import Box from '../../Components/Box';
 import Card from '../../Components/Card';
 import Loading from '../../Components/Loading';

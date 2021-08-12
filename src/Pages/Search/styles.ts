@@ -5,7 +5,7 @@ import breakpoints from '../../Assets/styles/breakpoints';
 import zIndex from '../../Assets/styles/zIndex';
 
 // @types
-import { styledSearchParams } from '../../@types/searchPage'
+import { styledSearchParams } from '../../types/searchPage'
 
 export const SearchContainer = styled.div<styledSearchParams>`
     width: 100%;

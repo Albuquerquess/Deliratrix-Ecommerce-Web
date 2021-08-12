@@ -2,7 +2,7 @@ import qs from 'qs';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 // @types
-import { categoriesProps, pricesProps, selectProps } from '../../../@types/Admin';
+import { categoriesProps, pricesProps, selectProps } from '../../../types/Admin';
 import AdminNav from '../../../Components/Admin/Nav';
 import Button from '../../../Components/Button';
 // components

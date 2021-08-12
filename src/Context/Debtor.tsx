@@ -2,7 +2,7 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 
 // @types
-import { DebtorProps, LogicDebtorProps } from '../@types/Debtor'
+import { DebtorProps, LogicDebtorProps } from '../types/Debtor'
 
 const initialState = {
     handleAddDebtor: (name: string, email: string, phone: string) => {},

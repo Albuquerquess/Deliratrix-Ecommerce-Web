@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @types
-import { ItemProps } from '../../../@types/Admin';
+import { ItemProps } from '../../../types/Admin';
 import Item from '../../../Components/Admin/Item';
 // components
 import AdminNav from '../../../Components/Admin/Nav';

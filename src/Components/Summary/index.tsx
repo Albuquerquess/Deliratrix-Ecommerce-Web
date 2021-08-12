@@ -1,6 +1,6 @@
 import React from 'react';
 // @types
-import { SumaryDataProps, SumaryProps } from '../../@types/Sumary';
+import { SumaryDataProps, SumaryProps } from '../../types/Sumary';
 // context
 import { CartContext } from '../../Context/Cart';
 // components

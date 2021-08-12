@@ -1,7 +1,7 @@
 import { default as React, default as react } from 'react';
 import { useParams } from 'react-router-dom';
 // @types
-import { contentProps, priceProps, responseUniqueContentProps, viewParamsProps } from '../../@types/View';
+import { contentProps, priceProps, responseUniqueContentProps, viewParamsProps } from '../../types/View';
 // assets
 import pix from '../../Assets/Pages/View/pix.svg';
 import Box from '../../Components/Box';

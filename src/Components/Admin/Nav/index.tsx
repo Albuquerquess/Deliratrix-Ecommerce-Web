@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @types
-import { AdminNavProps } from '../../../@types/Admin';
+import { AdminNavProps } from '../../../types/Admin';
 // styles
 import { AdminNavContainer } from './styles';
 

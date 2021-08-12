@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { StyleSearchProps } from '../../@types/Search';
+import { StyleSearchProps } from '../../types/Search';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 

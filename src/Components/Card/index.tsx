@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // @types
-import { CardProps } from '../../@types/Card';
+import { CardProps } from '../../types/Card';
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 // Utils

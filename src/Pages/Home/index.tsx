@@ -1,6 +1,6 @@
 import React from 'react';
 // @types
-import { ContentDataprops } from '../../@types/Home';
+import { ContentDataprops } from '../../types/Home';
 import Box from '../../Components/Box';
 import Card from '../../Components/Card';
 import CardButton from '../../Components/CardButton';

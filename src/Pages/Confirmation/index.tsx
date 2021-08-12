@@ -1,7 +1,7 @@
 import React from 'react';
 // @types
 import { RouteProps } from 'react-router-dom';
-import { contentProps, PaymentConfirmedProps, txidProps } from '../../@types/Confirmation';
+import { contentProps, PaymentConfirmedProps, txidProps } from '../../types/Confirmation';
 // assets
 import Thanks from '../../Assets/Pages/Confirmation/thanks.svg';
 // consts

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // @types
-import { SortProps } from '../../../@types/searchPage'
+import { SortProps } from '../../../types/searchPage'
 
 
 const Sort: React.FC<SortProps> = ( {clickFunction} ) => {

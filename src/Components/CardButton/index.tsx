@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { CardButtonContainer } from './styles';
 
 // @types
-import { CardButtonProps } from '../../@types/Card'
+import { CardButtonProps } from '../../types/Card'
 
 // Assets 
 import Arrow from '../../Assets/Components/CardButton/Arrow';

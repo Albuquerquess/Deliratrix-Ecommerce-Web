@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { StyledBoxProps, StyledCardRemoveProps } from '../../@types/Card'
+import { StyledBoxProps, StyledCardRemoveProps } from '../../types/Card'
 
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';

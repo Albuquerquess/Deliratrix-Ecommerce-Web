@@ -2,7 +2,7 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 
 // @types
-import { LogicCartProps, PriceItensProps, cartDataProps, ItemsAndPricesOnCookiesProps } from '../@types/LogicCart'
+import { LogicCartProps, PriceItensProps, cartDataProps, ItemsAndPricesOnCookiesProps } from '../types/LogicCart'
 
 // Api
 import Api from '../Services/Api';

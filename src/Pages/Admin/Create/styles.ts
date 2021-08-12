@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // @types
-import { AdminContainerProps } from '../../../@types/Admin';
+import { AdminContainerProps } from '../../../types/Admin';
 import breakpoints from '../../../Assets/styles/breakpoints';
 
 export const AdminCreateContainer = styled.div<AdminContainerProps>`
