@@ -10,9 +10,11 @@ import { INDEX, PAYMENT_CONFIRMED } from '../../Consts/urls';
 import Api from '../../Services/Api';
 // styles
 import { ConfirmationContainer } from './styles';
+// components 
+import RelatedContent from '../../Components/RelatedContent';
 
 const Confirmation: React.FC<RouteProps> = (history) => {
-   const [contentData, setContentData] = React.useState<contentProps[]>([])
+
    const [confirmedPayment, setConfirmedPayment] = React.useState(false)
    const [paymentStatusCode, setPaymentStatusCode] = React.useState(0)
    const states = history.location?.state as txidProps
@@ -36,13 +38,7 @@ const Confirmation: React.FC<RouteProps> = (history) => {
      }
    }
 
-   async function getContentOnBackend() {
-      const responseContentByCategory = await Api.get(INDEX, {params: {type: 'service'}})
-      setContentData(responseContentByCategory.data)
-    }
-
    React.useEffect(() => {
-      getContentOnBackend()
       checkPaymentConfirmation(txid)
     }, [])
 
@@ -70,7 +66,8 @@ const Confirmation: React.FC<RouteProps> = (history) => {
                </main>
   }
       </ConfirmationContainer>
- 
+      <RelatedContent type="product" title="Veja também esses conteúdos"/>
+
   </>
 }
 

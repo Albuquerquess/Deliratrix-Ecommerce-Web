@@ -6,19 +6,17 @@ import { cartDataProps, contentProps } from '../../types/Cart';
 import Box from '../../Components/Box';
 // components
 import Card from '../../Components/Card';
-import Sumary from '../../Components/Summary';
+import Summary from '../../Components/Summary';
+import RelatedContent from '../../Components/RelatedContent';
 // consts
 import { INDEX } from '../../Consts/urls';
 // Context
 import { CartContext } from '../../Context/Cart';
-// Api
-import Api from '../../Services/Api';
 // styles
 import { CardContainer } from './styles';
 
 const Cart: React.FC = () => {
 
-  const [contentData, setContentData] = React.useState<contentProps[]>([])
   const [cartContent, setCartContent] = React.useState<cartDataProps>({
     prices: [], contents: [],
   })
@@ -31,15 +29,8 @@ const Cart: React.FC = () => {
     setCartContent(report[0])
     }
     
-  async function getContentOnBackend() {
-    const responseContentByCategory = await Api.get(INDEX, {params: {type: 'product'}})
-    
-    setContentData(responseContentByCategory.data)
-  }
-    
   React.useEffect(() => {
     getCartData()
-    getContentOnBackend()
   }, [])
 
   return <>
@@ -47,7 +38,8 @@ const Cart: React.FC = () => {
       <section id="cart" >
         <h1>Meu carrinho</h1>
         <main>
-        {cartContent.contents ? cartContent.contents.map(content => {
+        {cartContent.contents && cartContent.contents.length ? cartContent.contents.map(content => {
+
           const [value] = cartContent.prices.filter(price => (Number(price.content_id) ===  content.id))
           
           return (<Card
@@ -65,12 +57,12 @@ const Cart: React.FC = () => {
             type={content.type}
             category={content.category}
             id={content.id}
-            />)}): (<strong>Você deve adicionar um produto no carrinho para visualizar as estatisticas.</strong>)}
+            />)}): (<strong>Você deve adicionar um conteúdo no carrinho para visualizá-los.</strong>)}
         </main>
       </section>
-     <Sumary buttonsDisplayed />
-
+     {cartContent.contents.length && <Summary buttonsDisplayed />}
     </CardContainer>
+    <RelatedContent type="product"/>
   </>
 }
 

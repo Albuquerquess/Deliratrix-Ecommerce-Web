@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { DebtorProps } from '../../types/Identify';
 // components
 import Button from '../../Components/Button';
+import RelatedContent from '../../Components/RelatedContent';
 // consts
 import { PAYMENT_GENERATE } from '../../Consts/urls';
 // context
@@ -96,7 +97,7 @@ const Identify: React.FC = () => {
     }
   }
 
-  return <IdentifyContaier infoDisplayed={infoDisplayed}>
+  return <><IdentifyContaier infoDisplayed={infoDisplayed}>
    <main>
       <h1>Identificação</h1>
       <h2 id="subtitle">As informações serão usadas para o envio dos materiais solicitados.</h2>
@@ -155,7 +156,10 @@ const Identify: React.FC = () => {
       </form>
    </main>
 
-  </IdentifyContaier>;
+  </IdentifyContaier>
+  <RelatedContent type="product"/>
+
+  </>
 }
 
 export default Identify;
