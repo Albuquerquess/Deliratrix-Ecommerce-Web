@@ -19,7 +19,7 @@ const Home: React.FC = () => {
   const [servicesData, setServicesData] = React.useState<ContentDataprops[]>([])
   const [productsData, setProductsData] = React.useState<ContentDataprops[]>([])
 
-  async function getContentOnbackend(type: string){
+  async function getBestContentsOnbackend(type: string){
     const response = await Api.get(INDEX_BESTS, {params: {type}})
     
     switch (type) {
@@ -33,8 +33,8 @@ const Home: React.FC = () => {
   }
 
   React.useEffect(() => {
-    getContentOnbackend('service')
-    getContentOnbackend('product')
+    getBestContentsOnbackend('service')
+    getBestContentsOnbackend('product')
   }, [])
   return <>
     <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
