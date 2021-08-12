@@ -40,7 +40,7 @@ const Navigation: React.FC = () => {
         </ul>
         
        <SearchInput value={search} setValue={setSearch} redirectTo={`/search`} />
-        <Link to="/carrinho/0">
+        <Link to="/carrinho">
           <Cart />
         </Link>
       </main>

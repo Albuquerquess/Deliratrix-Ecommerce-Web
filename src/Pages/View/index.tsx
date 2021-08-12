@@ -86,7 +86,7 @@ const View: React.FC = () => {
           </ol>
             <footer>
               <span id="current-price">{currentPrice?.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })|| 'Por favor, selecione uma opção'}</span>
-              <Button label="Adicionar ao carrinho" to="/carrinho/49" handleClicked={() => Context.handleAddItemToCart(contentData.content.id, Number(currentPrice?.id))} disabled={!currentPrice && true}/>
+              <Button label="Adicionar ao carrinho" to="/carrinho" handleClicked={() => Context.handleAddItemToCart(contentData.content.id, Number(currentPrice?.id))} disabled={!currentPrice && true}/>
               <img src={pix} alt="Pagamento via PIX" />
             </footer>
         </div>
