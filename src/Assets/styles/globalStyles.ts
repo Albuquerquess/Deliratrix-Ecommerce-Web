@@ -73,17 +73,31 @@ const GlobalStyles = createGlobalStyle`
         }
 
         /* placeholder */
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: var(---color-white);
-            opacity: 1; /* Firefox */
+        /* do not group these rules */
+        *::-webkit-input-placeholder {
+            color: #fff;
         }
-
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: var(---color-white);
+        *:-moz-placeholder {
+            /* FF 4-18 */
+            color: #fff;
+            opacity: 1;
         }
-
-        ::-ms-input-placeholder { /* Microsoft Edge */
-        color: var(---color-white);
+        *::-moz-placeholder {
+            /* FF 19+ */
+            color: #fff;
+            opacity: 1;
+        }
+        *:-ms-input-placeholder {
+            /* IE 10+ */
+            color: #fff;
+        }
+        *::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #fff;
+        }
+        *::placeholder {
+            /* modern browser */
+            color: #fff;
         }
     
        }

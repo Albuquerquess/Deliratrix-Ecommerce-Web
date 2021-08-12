@@ -22,10 +22,6 @@ export const SearchContainer = styled.label<StyleSearchProps>`
         padding-left: 1rem;
 
         font-size: 1rem;
-
-        ::placeholder {
-            color: var(--color-white);
-        }
     }
 
     svg {
