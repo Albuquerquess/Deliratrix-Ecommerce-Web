@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import { string } from 'yup/lib/locale';
 // @types
 import { cartDataProps, contentProps } from '../../@types/Cart';
 import Box from '../../Components/Box';
@@ -47,13 +48,8 @@ const Cart: React.FC = () => {
         <h1>Meu carrinho</h1>
         <main>
         {cartContent.contents ? cartContent.contents.map(content => {
-          const [value] = (cartContent.prices.map(item => {
-            if (Number(item.content_id) ===  content.id) {
-              return item.price
-            }else {
-              return 0
-            }
-          }))
+          const [value] = cartContent.prices.filter(price => (Number(price.content_id) ===  content.id))
+          console.log(value)
           
           return (<Card
             removeDisplayed
@@ -65,7 +61,7 @@ const Cart: React.FC = () => {
             title={content.title}
             description={content.desc}
             image={content.url}
-            value={value}
+            value={Number(value.price)}
             rate={content.rate}
             type={content.type}
             category={content.category}
