@@ -39,8 +39,8 @@ export const CartProvider: React.FC = ({ children }) => {
   }
   function handleRemoveItemToCart(itemId: number) {
     setCartItem(cartItem.filter((item) => item !== itemId))
-    cookies.remove('CART-ITEM-ID-'+itemId)
-    cookies.remove('PRICE-ITEM-ID-'+itemId)
+    cookies.remove('CART-ITEM-ID-'+itemId, {path: "*"})
+    cookies.remove('PRICE-ITEM-ID-'+itemId, {path: "*"})
   }
 
   async function getCartReport() {

@@ -49,7 +49,6 @@ const Cart: React.FC = () => {
         <main>
         {cartContent.contents ? cartContent.contents.map(content => {
           const [value] = cartContent.prices.filter(price => (Number(price.content_id) ===  content.id))
-          console.log(value)
           
           return (<Card
             removeDisplayed
