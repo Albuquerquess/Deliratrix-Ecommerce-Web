@@ -17,7 +17,9 @@ interface contentProps {
   title: string;
   type: string;
   url: string;
+  price: number;
 }
+
 interface priceProps {
   id: number;
   price: number;
