@@ -75,29 +75,29 @@ const GlobalStyles = createGlobalStyle`
         /* placeholder */
         /* do not group these rules */
         *::-webkit-input-placeholder {
-            color: #fff;
+            color: var(--color-gray-4);
         }
         *:-moz-placeholder {
             /* FF 4-18 */
-            color: #fff;
+            color: var(--color-gray-4);
             opacity: 1;
         }
         *::-moz-placeholder {
             /* FF 19+ */
-            color: #fff;
+            color: var(--color-gray-4);
             opacity: 1;
         }
         *:-ms-input-placeholder {
             /* IE 10+ */
-            color: #fff;
+            color: var(--color-gray-4);
         }
         *::-ms-input-placeholder {
             /* Microsoft Edge */
-            color: #fff;
+            color: var(--color-gray-4);
         }
         *::placeholder {
             /* modern browser */
-            color: #fff;
+            color: var(--color-gray-4);
         }
     
        }
