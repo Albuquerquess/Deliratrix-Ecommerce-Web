@@ -2,7 +2,7 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 
 // @types
-import { LogicCartProps, PriceItensProps, cartDataProps, ItemsAndPricesOnCookiesProps } from '../@types/LogicCart'
+import { LogicCartProps, PriceItensProps, cartDataProps, ItemsAndPricesOnCookiesProps } from '../types/LogicCart'
 
 // Api
 import Api from '../Services/Api';
@@ -30,17 +30,18 @@ export const CartProvider: React.FC = ({ children }) => {
 
   function handleAddItemToCart(itemId: number, priceId: number) {
     setCartItem([...cartItem, itemId])
-    cookies.set('CART-ITEM-ID-'+itemId, itemId, {maxAge: 604800})
+    setPriceItens([...priceItens, {itemId, priceId}])
+    cookies.set('CART-ITEM-ID-'+itemId, itemId, {path: '/'})
+    cookies.set('PRICE-ITEM-ID-'+itemId, priceId, {path: '/'})
   
-  setPriceItens([...priceItens, {itemId, priceId}])
-  cookies.set('PRICE-ITEM-ID-'+itemId, priceId)
 
 
   }
   function handleRemoveItemToCart(itemId: number) {
+    console.log(itemId)
     setCartItem(cartItem.filter((item) => item !== itemId))
-    cookies.remove('CART-ITEM-ID-'+itemId)
-    cookies.remove('PRICE-ITEM-ID-'+itemId)
+    cookies.remove('CART-ITEM-ID-'+itemId, {path: "/"})
+    cookies.remove('PRICE-ITEM-ID-'+itemId, {path: "/"})
   }
 
   async function getCartReport() {

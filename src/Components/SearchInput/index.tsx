@@ -8,7 +8,7 @@ import { SearchContainer } from './styles';
 import Lupa from '../../Assets/Components/Navigation/Lupa'
 
 // @types
-import { SearchProps } from '../../@types/Search';
+import { SearchProps } from '../../types/Search';
 
 const SearchInput: React.FC<SearchProps> = ({ onlyMobile, value, setValue, redirectTo }) => {
   const location = useHistory()

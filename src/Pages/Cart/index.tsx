@@ -1,23 +1,18 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-// @types
-import { cartDataProps, contentProps } from '../../@types/Cart';
-import Box from '../../Components/Box';
 // components
 import Card from '../../Components/Card';
-import Sumary from '../../Components/Summary';
-// consts
-import { INDEX } from '../../Consts/urls';
+import RelatedContent from '../../Components/RelatedContent';
+import Summary from '../../Components/Summary';
 // Context
 import { CartContext } from '../../Context/Cart';
-// Api
-import Api from '../../Services/Api';
+// @types
+import { cartDataProps } from '../../types/Cart';
 // styles
 import { CardContainer } from './styles';
 
 const Cart: React.FC = () => {
 
-  const [contentData, setContentData] = React.useState<contentProps[]>([])
   const [cartContent, setCartContent] = React.useState<cartDataProps>({
     prices: [], contents: [],
   })
@@ -30,16 +25,8 @@ const Cart: React.FC = () => {
     setCartContent(report[0])
     }
     
-  async function getContentOnBackend() {
-    const responseContentByCategory = await Api.get(INDEX, {params: {type: 'service'}})
-    // Fazer um show o ID no param e pegar o type e category. Fazer um index category com o type e category do ID.
-    
-    setContentData(responseContentByCategory.data)
-  }
-    
   React.useEffect(() => {
     getCartData()
-    getContentOnBackend()
   }, [])
 
   return <>
@@ -47,14 +34,9 @@ const Cart: React.FC = () => {
       <section id="cart" >
         <h1>Meu carrinho</h1>
         <main>
-        {cartContent.contents ? cartContent.contents.map(content => {
-          const [value] = (cartContent.prices.map(item => {
-            if (Number(item.content_id) ===  content.id) {
-              return item.price
-            }else {
-              return 0
-            }
-          }))
+        {cartContent.contents && cartContent.contents.length ? cartContent.contents.map(content => {
+
+          const [value] = cartContent.prices.filter(price => (Number(price.content_id) ===  content.id))
           
           return (<Card
             removeDisplayed
@@ -66,28 +48,17 @@ const Cart: React.FC = () => {
             title={content.title}
             description={content.desc}
             image={content.url}
-            value={value}
+            value={Number(value.price)}
             rate={content.rate}
             type={content.type}
             category={content.category}
             id={content.id}
-            />)}): (<strong>Você deve adicionar um produto no carrinho para visualizar as estatisticas.</strong>)}
+            />)}): (<strong>Você deve adicionar um conteúdo no carrinho para visualizá-los.</strong>)}
         </main>
       </section>
-     <Sumary buttonsDisplayed />
-
+     {cartContent.contents.length && <Summary buttonsDisplayed />}
     </CardContainer>
-    <Box title="Produtos relacionados">
-      {contentData && contentData.map(content => <Card
-          title={content.title}
-          description={content.desc}
-          image={content.url}
-          value={content.price}
-          rate={content.rate}
-          type={content.type}
-          category={content.category}
-          id={content.id} />)}
-    </Box>
+    <RelatedContent type="product" title={cartContent.contents && cartContent.contents.length ? "Conteúdos relacionados" : "Veja estes conteúdos"}/>
   </>
 }
 

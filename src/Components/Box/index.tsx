@@ -1,6 +1,6 @@
 import React from 'react';
 // @types
-import { BoxProps } from '../../@types/Box';
+import { BoxProps } from '../../types/Box';
 // styles
 import { BoxContainer } from './styles';
 

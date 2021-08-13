@@ -4,7 +4,7 @@ import React from 'react';
 import { LabelInput } from './styles';
 
 // Types
-import { InputProps } from '../../../@types/Form'
+import { InputProps } from '../../../types/Form'
 
 const Input: React.FC<InputProps> = ({type}) => {
   return <LabelInput>

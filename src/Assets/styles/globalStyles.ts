@@ -24,7 +24,7 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-size: 1.6rem;
-        line-height: 17px;
+        line-height: 1;
 
         display: flex;
         align-items: center;
@@ -73,17 +73,31 @@ const GlobalStyles = createGlobalStyle`
         }
 
         /* placeholder */
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-            color: var(---color-white);
-            opacity: 1; /* Firefox */
+        /* do not group these rules */
+        *::-webkit-input-placeholder {
+            color: var(--color-gray-4);
         }
-
-        :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: var(---color-white);
+        *:-moz-placeholder {
+            /* FF 4-18 */
+            color: var(--color-gray-4);
+            opacity: 1;
         }
-
-        ::-ms-input-placeholder { /* Microsoft Edge */
-        color: var(---color-white);
+        *::-moz-placeholder {
+            /* FF 19+ */
+            color: var(--color-gray-4);
+            opacity: 1;
+        }
+        *:-ms-input-placeholder {
+            /* IE 10+ */
+            color: var(--color-gray-4);
+        }
+        *::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: var(--color-gray-4);
+        }
+        *::placeholder {
+            /* modern browser */
+            color: var(--color-gray-4);
         }
     
        }

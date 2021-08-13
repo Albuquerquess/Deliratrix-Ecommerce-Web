@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 // @types
-import { styledViewProps } from '../../@types/View'
+import { styledViewProps } from '../../types/View'
 
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 
 export const ViewContainer = styled.div<styledViewProps>`
     margin-top: 2rem;
+    width: 100%;
 
     nav {
         margin-bottom: 2rem;
@@ -162,8 +163,9 @@ export const ViewContainer = styled.div<styledViewProps>`
                 margin-bottom: 2rem;
             }
 
-            p {
+            p#desc {
                 font-size: 1.5rem;
+                line-height: 1;
             }
         }
     }

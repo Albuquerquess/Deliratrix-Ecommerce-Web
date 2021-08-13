@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 //@types
-import {LoadingProps} from '../../@types/PageLoading'
+import {LoadingProps} from '../../types/PageLoading'
 
 export const LoadingContainer = styled.div<LoadingProps>`
       display: ${props => props.disabled ? 'none' : 'block'};

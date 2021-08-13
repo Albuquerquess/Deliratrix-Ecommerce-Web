@@ -6,7 +6,7 @@ import { useDebounce } from 'use-lodash-debounce'
 import { SearchContainer } from './styles';
 
 // @types
-import { searchParamsProps, searchDataProps } from '../../@types/searchPage';
+import { searchParamsProps, searchDataProps } from '../../types/searchPage';
 
 // components
 import SearchInput from '../../Components/SearchInput'
@@ -37,10 +37,9 @@ const Search: React.FC = () => {
   const [selectValue, setSelectValue] = React.useState('rate')
   const [modalIsOpen, setModalIsOpen] = React.useState(false)
   const [search, setSearch] = React.useState('')
-  const searchDebounce = useDebounce(search, 1000)
+  const searchDebounce = useDebounce(search, 500)
   const [searchData, setSearchData] = React.useState<searchDataProps[]>([])
 
-  
   async function getContentOnbackendByFilter() {
     const response = await Api.get(INDEX_SEARCH, {params: {search: searchDebounce, orderBy: selectValue}})
     setSearchData(response.data)
@@ -112,7 +111,7 @@ const Search: React.FC = () => {
           rate={content.rate}
           type={content.type}
           category={content.category}
-          id={1} />) : <Loading />}
+          id={content.id} />) : <Loading />}
       </Box>
   </SearchContainer>;
 }

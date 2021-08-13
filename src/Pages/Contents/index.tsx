@@ -1,27 +1,22 @@
 import React from 'react';
-import { useParams, withRouter } from 'react-router-dom'
-
+import { useParams, withRouter } from 'react-router-dom';
 // @types
-import { contentDataProps, paramsProps } from '../../@types/Content'
-
+import { contentDataProps, paramsProps } from '../../types/Content';
+import Box from '../../Components/Box';
+import Card from '../../Components/Card';
+import Loading from '../../Components/Loading';
 // components
 import SearchInput from '../../Components/SearchInput';
-import Box from '../../Components/Box'
-import Card from '../../Components/Card'
-import Loading from '../../Components/Loading'
-
-// api
-import Api from '../../Services/Api'
-
-// references
-import { typeReferenceOnBackend } from '../../Utils/references'
-
 import { INDEX } from '../../Consts/urls';
+// api
+import Api from '../../Services/Api';
+// references
+import { typeReferenceOnBackend } from '../../Utils/typeReferenceOnBackend';
 
 const Contents: React.FC = () => {
   const params: paramsProps = useParams()
   const type: string = params.type
-  
+  const typeRef = typeReferenceOnBackend[type] 
 
   const [search, setSearch] = React.useState('')
   const [contentData, setContentData] = React.useState<contentDataProps[]>([])
@@ -34,7 +29,6 @@ const Contents: React.FC = () => {
       
     }
   }
-
 
   React.useEffect(() => {
     setContentData([])

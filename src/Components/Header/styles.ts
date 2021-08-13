@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
-import { StylesHeaderProps } from '../../@types/Header'
+import { StylesHeaderProps } from '../../types/Header'
 
 export const HeaderContainer = styled.header<StylesHeaderProps>`
     margin: 3rem 0;
@@ -20,6 +20,7 @@ export const HeaderContainer = styled.header<StylesHeaderProps>`
   }
 
   @media (max-width: ${breakpoints.tablet}) {
+    height: 25vh;
       img {
           width: 100%;
           height: auto;

@@ -23,7 +23,7 @@ export const PaymentContainer = styled.div`
     div#payment-container {
         width: 100%;
 
-        section:first-child {
+        div#qrcode-container {
             width: 30%;
             display: flex;
             align-items: center;
@@ -34,13 +34,18 @@ export const PaymentContainer = styled.div`
                 width: 48%;
             }
         }
-        section#pix-raw {
+
+        section {
             width: 100%;
             margin-bottom: 2rem;
 
             h1 {
                 font-size: 2rem;
                 margin-bottom: 2rem;
+            }
+
+            p {
+              line-height: 1;
             }
             
             div#copy {
@@ -78,16 +83,16 @@ export const PaymentContainer = styled.div`
       font-size: 1rem;
     }
 
-    main div#payment-container {
-
-      section:first-child {
+    main > div#payment-container {
+      div#qrcode-container {
         width: 100%;
-        height: auto;
       }
 
-      section:last-child {
+      section {
+        width: 100%;
+        height: auto;
         h1 {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
         div {
           flex-direction: column-reverse;

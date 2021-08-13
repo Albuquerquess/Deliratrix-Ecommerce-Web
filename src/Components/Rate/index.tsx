@@ -4,7 +4,7 @@ import Rating from 'react-simple-star-rating'
 
 
 // @types
-import { RateProps } from '../../@types/Rate';
+import { RateProps } from '../../types/Rate';
 
 const Rate: React.FC<RateProps> = ({rate, size}) => {
 

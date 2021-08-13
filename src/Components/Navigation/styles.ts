@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 // @types
-import { StyledSidebarProps, StyledNavigationProps } from '../../@types/Navigation'
+import { StyledSidebarProps, StyledNavigationProps } from '../../types/Navigation'
 import zIndex from '../../Assets/styles/zIndex';
 
 export const NavContainer = styled.nav<StyledNavigationProps>`
@@ -17,6 +17,7 @@ export const NavContainer = styled.nav<StyledNavigationProps>`
     padding: 1rem 0;
 
     z-index: ${zIndex.topAll};
+    margin-bottom: 2rem;
 
     svg#sidebar-open {
         display: none;

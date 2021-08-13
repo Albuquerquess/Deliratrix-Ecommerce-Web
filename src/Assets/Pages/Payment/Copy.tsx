@@ -3,7 +3,7 @@ import React from 'react';
 // import { Container } from './styles';
 
 // @types
-import { CopyPasteProps } from '../../../@types/Payment'
+import { CopyPasteProps } from '../../../types/Payment'
 
 const Copy: React.FC<CopyPasteProps> = ({ clickFunction }) => {
   return <svg

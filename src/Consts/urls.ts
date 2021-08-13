@@ -15,3 +15,4 @@ export const DELETE = '/admin/delete'
 export const UUID = '/admin/panel/uuid/generate'
 
 export const PAYMENT_GENERATE = '/payment/pix/generate'
+export const PAYMENT_CONFIRMED = '/admin/paid/confirmed'

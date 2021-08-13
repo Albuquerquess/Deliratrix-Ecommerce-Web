@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // @types
-import { StyledButtonProps } from '../../@types/Button';
+import { StyledButtonProps } from '../../types/Button';
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
 

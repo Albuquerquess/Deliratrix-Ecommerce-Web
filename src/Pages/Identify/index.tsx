@@ -1,12 +1,9 @@
 import React from 'react';
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
-// @types
-import { DebtorProps } from '../../@types/Identify';
-import Box from '../../Components/Box';
 // components
 import Button from '../../Components/Button';
-import Card from '../../Components/Card';
+import RelatedContent from '../../Components/RelatedContent';
 // consts
 import { PAYMENT_GENERATE } from '../../Consts/urls';
 // context
@@ -14,12 +11,17 @@ import { CartContext } from '../../Context/Cart';
 import { DebtorContext } from '../../Context/Debtor';
 // Api
 import Api from '../../Services/Api';
-// styles
-import { IdentifyContaier } from './styles';
+// @types
+import { DebtorProps } from '../../types/Identify';
 // validator
 import identifyValidate from '../../Validation/identify';
+// styles
+import { IdentifyContaier } from './styles';
 
-const Identify: React.FC = () => {
+const Identify: React.FC = () => {  
+  const cartContext = React.useContext(CartContext)
+  const debtorContext = React.useContext(DebtorContext)
+  
   const [name, setName] = React.useState('')
   const [phone, setPhone] = React.useState('')
   const [email, setEmail] = React.useState('')
@@ -31,9 +33,7 @@ const Identify: React.FC = () => {
   const [info, setInfo] = React.useState('')
   const [infoDisplayed, setInfoDisplayed] = React.useState(false)
   const [allOk, setAllOk] = React.useState(false)
-  
-  const cartContext = React.useContext(CartContext)
-  const debtorContext = React.useContext(DebtorContext)
+
 
   const history = useHistory()
 
@@ -61,24 +61,32 @@ const Identify: React.FC = () => {
     }
   }, [name, email, phone, validEmail])
 
+  React.useEffect(() => {
+    const getDebtorInfoOnCokies: DebtorProps = debtorContext.getDebtorData()
+    if(getDebtorInfoOnCokies) {
+      setName(getDebtorInfoOnCokies.name ? getDebtorInfoOnCokies.name : '')
+      setEmail(getDebtorInfoOnCokies.email ? getDebtorInfoOnCokies.email : '')
+      setPhone(getDebtorInfoOnCokies.phone ? getDebtorInfoOnCokies.phone : '')
+    }
+
+// getDebtorInfoOnCokies.name ? getDebtorInfoOnCokies.name : ''
+  }, [])
+
   async function saveDebtorDataOnCookies(name: string, email: string, phone: string) {
-    await debtorContext.handleAddDebtor(name, email, phone)
+    debtorContext.handleAddDebtor(name, email, phone)
   }
 
   async function generatePayment() {
-    const debtorReport: DebtorProps = await debtorContext.getDebtorData()
+    const debtorReport: DebtorProps = debtorContext.getDebtorData()
     const [cartReport] = await cartContext.getCartReport()
 
-    console.log(debtorReport)
-    console.log(cartReport)
-
-    if (debtorReport && cartReport) {
+    if (cartReport) {
       const data = {
         cart: {
           contents: cartReport.contents,
           prices: cartReport.prices
         }, 
-        debtor: debtorReport
+        debtor: {name, email, phone}
       }
 
       const response = await Api.post(PAYMENT_GENERATE, data)
@@ -101,10 +109,10 @@ const Identify: React.FC = () => {
     }
   }
 
-  return <IdentifyContaier infoDisplayed={infoDisplayed}>
+  return <><IdentifyContaier infoDisplayed={infoDisplayed}>
    <main>
       <h1>Identificação</h1>
-      <h2>As informações serão usadas para o envio dos materiais solicitados.</h2>
+      <h2 id="subtitle">As informações serão usadas para o envio dos materiais solicitados.</h2>
       
       <form onSubmit={(e) => {
           e.preventDefault()
@@ -160,7 +168,10 @@ const Identify: React.FC = () => {
       </form>
    </main>
 
-  </IdentifyContaier>;
+  </IdentifyContaier>
+  <RelatedContent type="product"/>
+
+  </>
 }
 
 export default Identify;

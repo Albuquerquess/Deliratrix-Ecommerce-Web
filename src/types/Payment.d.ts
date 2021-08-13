@@ -7,3 +7,10 @@ export interface PaymentProps {
     chargeRaw: string,
     txid: string
 }
+
+export interface PaymentConfirmedProps {
+    error: boolean
+    paid: boolean
+    message?: string
+    
+}

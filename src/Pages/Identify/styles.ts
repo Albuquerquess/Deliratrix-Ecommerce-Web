@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { StyledIdentifyProps } from '../../@types/Identify';
+import { StyledIdentifyProps } from '../../types/Identify';
 
 // breakpoints
 import breakpoints from '../../Assets/styles/breakpoints';
@@ -14,6 +14,7 @@ export const IdentifyContaier = styled.div<StyledIdentifyProps>`
     justify-content: center;
 
     main {
+        width: 35%;
         span#info {
             display: ${props => props.infoDisplayed ? 'flex' : 'none'};
             align-items: center;
@@ -31,12 +32,13 @@ export const IdentifyContaier = styled.div<StyledIdentifyProps>`
         h1 {
             font-size: 3rem;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
-        h2 {
+        h2#subtitle {
             color: var(--color-gray-5);
             margin-bottom: 2rem;
+            font-size: 1rem;
         }
 
         form {

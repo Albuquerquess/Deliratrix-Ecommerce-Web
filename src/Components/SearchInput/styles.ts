@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // @types
-import { StyleSearchProps } from '../../@types/Search';
+import { StyleSearchProps } from '../../types/Search';
 import breakpoints from '../../Assets/styles/breakpoints';
 
 
@@ -22,10 +22,6 @@ export const SearchContainer = styled.label<StyleSearchProps>`
         padding-left: 1rem;
 
         font-size: 1rem;
-
-        ::placeholder {
-            color: var(--color-white);
-        }
     }
 
     svg {

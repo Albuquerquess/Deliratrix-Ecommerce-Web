@@ -2,7 +2,7 @@ import qs from 'qs';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 // @types
-import { categoriesProps, pricesProps, selectProps } from '../../../@types/Admin';
+import { categoriesProps, pricesProps, selectProps } from '../../../types/Admin';
 import AdminNav from '../../../Components/Admin/Nav';
 import Button from '../../../Components/Button';
 // components
@@ -45,9 +45,10 @@ const Create: React.FC = () => {
     const formData = new FormData()
     formData.append('file', thumb)
 
-    const create = await Api.post(CREATE, formData, {params: payload, paramsSerializer: params => {
-      return qs.stringify(params)
-    }})
+    const create = await Api.post(CREATE, formData, {
+      params: payload, paramsSerializer: params => {
+      return qs.stringify(params)}
+    })
     if (create.status === 200) return history.push('/admin')
     setLoadVisible(false)
     return alert('Erro ao criar o conteúdo, verifique a sua conexão e entre em contato com o suporte. Status code: '+create.status)
@@ -155,7 +156,7 @@ const Create: React.FC = () => {
         </section>
         <section id="preview">
           <h1>Preview</h1>
-          <Card title={title} description={desc} value={prices[0].price} image={previewThumb} redirect={false}/>
+          <Card title={title} description={desc} value={prices[0].price} image={previewThumb} redirect={false} rate={5}/>
         </section>
       </main>
   </AdminCreateContainer>;

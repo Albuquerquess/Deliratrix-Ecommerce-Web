@@ -7,7 +7,7 @@ import { SidebarContainer } from './styles';
 import SidebarClose from '../../Assets/Components/Navigation/Sidebar/SidebarClose'
 
 // @types
-import { SidebarProps } from '../../@types/Navigation'
+import { SidebarProps } from '../../types/Navigation'
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, handleClickFunction }) => {
     
@@ -16,8 +16,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, handleClickFunction }) => {
           <nav><SidebarClose clickFunction={handleClickFunction}/></nav>
           <ul>
               <li onClick={() =>handleClickFunction(false)} ><Link to="/sobre">Sobre</Link></li>
-              <li onClick={() =>handleClickFunction(false)} ><Link to="/explorar/servicos">Serviços</Link></li>
-              <li onClick={() =>handleClickFunction(false)} ><Link to="/explorar/produtos">Produtos</Link></li>
+              <li onClick={() =>handleClickFunction(false)} ><Link to="/explorar/Produtos">Produtos</Link></li>
+              <li onClick={() =>handleClickFunction(false)} ><Link to="/explorar/Serviços">Serviços</Link></li>
               <li onClick={() =>handleClickFunction(false)} ><Link to="/">Página inicial</Link></li>
           </ul>
       </div>

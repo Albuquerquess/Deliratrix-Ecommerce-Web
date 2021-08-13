@@ -1,7 +1,7 @@
 import React from 'react';
 
 // @types
-import { SidebarButtonProps } from '../../../../@types/Navigation'
+import { SidebarButtonProps } from '../../../../types/Navigation'
 
 const SidebarOpen: React.FC<SidebarButtonProps> = ({clickFunction}) => {
   return <svg onClick={() => clickFunction(true)}

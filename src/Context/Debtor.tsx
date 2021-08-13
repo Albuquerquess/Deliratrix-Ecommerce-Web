@@ -2,7 +2,7 @@ import React from 'react';
 import Cookies from 'universal-cookie';
 
 // @types
-import { DebtorProps, LogicDebtorProps } from '../@types/Debtor'
+import { DebtorProps, LogicDebtorProps } from '../types/Debtor'
 
 const initialState = {
     handleAddDebtor: (name: string, email: string, phone: string) => {},
@@ -21,10 +21,18 @@ export const DebtorProvider: React.FC = ({ children }) => {
             cookies.set('email', email)
             cookies.set('phone', phone)
 
-            return await setDebtor({name, email, phone})
+            return setDebtor({name, email, phone})
         }else {
             alert('Não foi possivel registrar os dados!')
         }
+    }
+
+    async function getDebtorReport() {
+        const name = cookies.get('name')
+        const email = cookies.get('email')
+        const phone = cookies.get('phone')
+
+        return {name, email, phone}
     }
 
     function getDebtorData() {

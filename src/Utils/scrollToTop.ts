@@ -1,11 +1,17 @@
 import { useEffect } from 'react';
-import { withRouter, useLocation } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+//types
+import { RouteComponentProps } from 'react-router-dom';
 
-const ScrollToTop = ()  => {
-  const params = useLocation()
+const ScrollToTop: React.FC<RouteComponentProps> = ({ history }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [params]);
+    const unlisten = history.listen(() => {
+      window.scrollTo(0, 0);
+    });
+    return () => {
+      unlisten();
+    }
+  }, []);
 
   return (null);
 }

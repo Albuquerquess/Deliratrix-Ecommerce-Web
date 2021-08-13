@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from "react-loader-spinner";
 // @types
-import { LoadingProps } from '../../@types/PageLoading';
+import { LoadingProps } from '../../types/PageLoading';
 import DeliraStore from '../../Assets/Components/LoadPage/Delirastore';
 // styles
 import { LoadingContainer } from './styles';
