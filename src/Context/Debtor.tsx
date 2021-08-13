@@ -27,6 +27,14 @@ export const DebtorProvider: React.FC = ({ children }) => {
         }
     }
 
+    async function getDebtorReport() {
+        const name = cookies.get('name')
+        const email = cookies.get('email')
+        const phone = cookies.get('phone')
+
+        return {name, email, phone}
+    }
+
     function getDebtorData() {
         const allCookies = cookies.getAll()
 

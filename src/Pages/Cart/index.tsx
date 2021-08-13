@@ -1,17 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import { string } from 'yup/lib/locale';
-// @types
-import { cartDataProps, contentProps } from '../../types/Cart';
-import Box from '../../Components/Box';
 // components
 import Card from '../../Components/Card';
-import Summary from '../../Components/Summary';
 import RelatedContent from '../../Components/RelatedContent';
-// consts
-import { INDEX } from '../../Consts/urls';
+import Summary from '../../Components/Summary';
 // Context
 import { CartContext } from '../../Context/Cart';
+// @types
+import { cartDataProps } from '../../types/Cart';
 // styles
 import { CardContainer } from './styles';
 
@@ -62,7 +58,7 @@ const Cart: React.FC = () => {
       </section>
      {cartContent.contents.length && <Summary buttonsDisplayed />}
     </CardContainer>
-    <RelatedContent type="product"/>
+    <RelatedContent type="product" title={cartContent.contents && cartContent.contents.length ? "Conteúdos relacionados" : "Veja estes conteúdos"}/>
   </>
 }
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
-// @types
-import { DebtorProps } from '../../types/Identify';
 // components
 import Button from '../../Components/Button';
 import RelatedContent from '../../Components/RelatedContent';
@@ -13,12 +11,17 @@ import { CartContext } from '../../Context/Cart';
 import { DebtorContext } from '../../Context/Debtor';
 // Api
 import Api from '../../Services/Api';
+// @types
+import { DebtorProps } from '../../types/Identify';
 // validator
 import identifyValidate from '../../Validation/identify';
 // styles
 import { IdentifyContaier } from './styles';
 
-const Identify: React.FC = () => {
+const Identify: React.FC = () => {  
+  const cartContext = React.useContext(CartContext)
+  const debtorContext = React.useContext(DebtorContext)
+  
   const [name, setName] = React.useState('')
   const [phone, setPhone] = React.useState('')
   const [email, setEmail] = React.useState('')
@@ -30,9 +33,7 @@ const Identify: React.FC = () => {
   const [info, setInfo] = React.useState('')
   const [infoDisplayed, setInfoDisplayed] = React.useState(false)
   const [allOk, setAllOk] = React.useState(false)
-  
-  const cartContext = React.useContext(CartContext)
-  const debtorContext = React.useContext(DebtorContext)
+
 
   const history = useHistory()
 
@@ -59,6 +60,17 @@ const Identify: React.FC = () => {
       setAllOk(false)
     }
   }, [name, email, phone, validEmail])
+
+  React.useEffect(() => {
+    const getDebtorInfoOnCokies: DebtorProps = debtorContext.getDebtorData()
+    if(getDebtorInfoOnCokies) {
+      setName(getDebtorInfoOnCokies.name ? getDebtorInfoOnCokies.name : '')
+      setEmail(getDebtorInfoOnCokies.email ? getDebtorInfoOnCokies.email : '')
+      setPhone(getDebtorInfoOnCokies.phone ? getDebtorInfoOnCokies.phone : '')
+    }
+
+// getDebtorInfoOnCokies.name ? getDebtorInfoOnCokies.name : ''
+  }, [])
 
   async function saveDebtorDataOnCookies(name: string, email: string, phone: string) {
     debtorContext.handleAddDebtor(name, email, phone)
