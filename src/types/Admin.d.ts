@@ -1,3 +1,5 @@
+import { RouteProps } from "react-router";
+
 export interface selectProps {
     value: string;
     label: string;
@@ -54,4 +56,14 @@ export interface ItemProps {
     title: string;
     id: string;
     onDelete: () => void;
+}
+
+export interface isValidLogin {
+    valid: boolean
+}
+
+export interface AdminPrivateProps extends RouteProps {
+    exact: boolean
+    component: any
+    path: string
 }
