@@ -95,6 +95,11 @@ const View: React.FC = () => {
     <section>
        <h2>Descrição</h2>
        <p id="desc">{contentData.content.desc}</p>
+       {contentData.content.time > 0 && (
+       <span id="duration">
+          Duração do conteúdo: <strong>{contentData.content.time} minutos.</strong>
+        </span>)}
+       
     </section></> : <Loading />}
   </main>
 

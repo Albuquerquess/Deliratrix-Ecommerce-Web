@@ -36,7 +36,7 @@ const Create: React.FC = () => {
   async function handleSubmit(e: any) {
     e.preventDefault()
     
-    const payload = {title, desc, prices, finalContentUrl, type: typeSelect, category: newCategory ? newCategory : categorySelect}
+    const payload = {title, desc, prices, finalContentUrl, duration, type: typeSelect, category: newCategory ? newCategory : categorySelect}
 
     const validate = await createContentValidate(payload)
     if (!(validate?.valid)) return alert('Erro: '+validate?.error)    

@@ -166,6 +166,14 @@ export const ViewContainer = styled.div<styledViewProps>`
             p#desc {
                 font-size: 1.5rem;
                 line-height: 1;
+                margin-bottom: 1rem;
+            }
+            span#duration {
+                font-size: 1.6rem;
+
+                strong {
+                    color: var(--color-red);
+                }
             }
         }
     }
@@ -248,6 +256,9 @@ export const ViewContainer = styled.div<styledViewProps>`
             section:last-child {
                 p {
                     font-size: 1rem;
+                }
+                span#duration {
+                    font-size: 1.2rem;
                 }
             }
 
