@@ -59,11 +59,16 @@ export interface ItemProps {
 }
 
 export interface isValidLogin {
-    valid: boolean
+    isAuth: boolean
+    token: string
 }
 
 export interface AdminPrivateProps extends RouteProps {
     exact: boolean
     component: any
     path: string
+}
+
+export interface loginContainerProps {
+    infoDisplay: boolean
 }

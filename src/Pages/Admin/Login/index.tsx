@@ -6,41 +6,39 @@ import Api from '../../../Services/Api'
 import { LoginContainer } from './styles';
 // Context
 import { AdminContext } from '../../../Context/Admin'
+import { isValidLogin } from '../../../types/Admin';
 
 const Login: React.FC = () => {
   const [user, setUser] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const [infoDisplay, setInfoDisplay] = React.useState(false)
   const location = useHistory()
   const { registerToken } = React.useContext(AdminContext)
 
-    function fakelogin({user, password}: any) {
-      if (user === 'admin' && password === '123456') {
-        return {token: '1234', isAuth: true}
-      }else {
-        return {isAuth: false, token: null, messages: [
-          'Usuário incorreto'
-        ]}
-      }
-    }
-
-
   async function validateCredentials(e: React.FormEvent<HTMLFormElement>) {
-    console.log('entrou')
     e.preventDefault()
-    // const isValidLogin: isValidLogin = await Api.post('admin/validation', {login, password})
-    const response =  fakelogin({user, password})
 
-    if (response.isAuth ) {
-      registerToken(String(response.token))
-      return location.push('/admin')
-    }else {
+    try {
+      const response = await Api.post('/admin/login', {}, {
+        auth: {username: user, password}
+      })
+      
+      const isValid: isValidLogin = response.data
+      
+      if (isValid.isAuth) {
+        setInfoDisplay(false)
+        registerToken(String(isValid.token))
+        return location.push('/admin')
+      }
+      
+    } catch (error) {
+      setInfoDisplay(true)
       setPassword('')
     }
     
-
   }
 
-  return <LoginContainer>
+  return <LoginContainer infoDisplay={infoDisplay}>
       <main>
           <h1>Insira as credenciais</h1>
           <form onSubmit={validateCredentials}>

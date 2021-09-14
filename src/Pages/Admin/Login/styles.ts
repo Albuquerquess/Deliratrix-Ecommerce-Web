@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import breakpoints from '../../../Assets/styles/breakpoints';
+// Types
+import { loginContainerProps } from '../../../types/Admin'
 
-export const LoginContainer = styled.div`
+export const LoginContainer = styled.div<loginContainerProps>`
     width: 100vw;
     height: 50vh;
     display: flex;
@@ -49,7 +51,7 @@ export const LoginContainer = styled.div`
                     }
 
                     i.info {
-                        display: none;
+                        display: ${props => props.infoDisplay ? 'flex' : 'none'};
                         align-self: flex-start;
                         margin-top: .5rem;
                         margin-bottom: .5rem;
