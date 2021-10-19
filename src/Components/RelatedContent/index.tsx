@@ -26,7 +26,7 @@ const RelatedContent: React.FC<relatedContentProps> = ({type, title}) => {
   }, [])
 
   return <Box title={title ? title : "Produtos relacionados"}>
-    {relatedContent.map(content => <Card
+    {/* {relatedContent.map(content => <Card
       type={content.type}
       category={content.category}
       image={content.url}
@@ -36,7 +36,37 @@ const RelatedContent: React.FC<relatedContentProps> = ({type, title}) => {
       id={content.id}
       value={content.price}
       
-      />)}
+      />)} */}
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
       </Box>
 }
 

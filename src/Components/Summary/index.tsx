@@ -17,8 +17,15 @@ const Summary: React.FC<SumaryProps> = ({ buttonsDisplayed }) => {
   })
 
   async function getSummaryData() {
-    const summary = await cartContext.getCartReport()
-    setSummary(summary[1])
+    // const summary = await cartContext.getCartReport()
+    // setSummary(summary[1])
+    setSummary({
+      subvalue: 100,
+      discount: 10,
+      finalvalue: 90,
+      items: 3
+    })
+
   }
 
   React.useEffect(() => {

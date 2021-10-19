@@ -158,11 +158,14 @@ const Identify: React.FC = () => {
             placeholder="Ex: (99) 9 9999 9999"
             value={phone}
             onChange={({target}) => setPhone(target.value)}/>
+
+
         </label>
 
-        <Button type="submit" label="Ir ao pagamento" disabled={allOk ? false : true} handleClicked={() => {
-          saveDebtorDataOnCookies(name, email, phone)
-          generatePayment()
+        <Button type="submit" label="Ir ao pagamento" /*disabled={allOk ? false : true}*/ disabled={false} handleClicked={() => {
+          alert('Nessa parte, o usuário iria ser redirecionado ao pagamento. Lá, o QRCode seria lido e, após a validação do pagamento, o conteúdo seria enviado para o email do mesmo. Confira neste link: https://prnt.sc/1wqjna6 e https://prnt.sc/1wqjqqd')
+          // saveDebtorDataOnCookies(name, email, phone)
+          // generatePayment()
           }}/>
 
       </form>

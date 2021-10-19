@@ -69,7 +69,7 @@ const Search: React.FC = () => {
             classNamePrefix="select-component"
             placeholder="Selecione um filtro"
             className="select-component-container"
-            onChange={(selectedOption) => setSelectValue(selectedOption?.value || '')}
+            onChange={(selectedOption: any) => setSelectValue(selectedOption?.value || '')}
             />
           <Sort clickFunction={() => setModalIsOpen(true)}/>
           <div id="select-modal" >

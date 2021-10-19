@@ -35,7 +35,10 @@ const Admin: React.FC = () => {
           <Link to="/admin/cadastrar">Cadastrar conteúdo <img src={Add} alt="[ + ]" /></Link>
         </header>
         <div id="items-contianer">
-          {items ? items.map(item => <Item title={item.title} id={item.id} onDelete={() => setItemsQtd(itemsQtd - 1 > 0 ? itemsQtd - 1 : 0)}/>): ''}
+          {/* {items ? items.map(item => <Item title={item.title} id={item.id} onDelete={() => setItemsQtd(itemsQtd - 1 > 0 ? itemsQtd - 1 : 0)}/>): ''} */}
+          <Item title={'Titulo do conteúdo'} id={'123'} onDelete={() => setItemsQtd(itemsQtd - 1 > 0 ? itemsQtd - 1 : 0)}/>
+          <Item title={'Titulo do conteúdo'} id={'456'} onDelete={() => setItemsQtd(itemsQtd - 1 > 0 ? itemsQtd - 1 : 0)}/>
+          <Item title={'Titulo do conteúdo'} id={'789'} onDelete={() => setItemsQtd(itemsQtd - 1 > 0 ? itemsQtd - 1 : 0)}/>
 
 
         </div>

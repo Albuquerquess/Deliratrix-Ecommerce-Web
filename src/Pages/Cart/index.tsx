@@ -34,29 +34,58 @@ const Cart: React.FC = () => {
       <section id="cart" >
         <h1>Meu carrinho</h1>
         <main>
-        {cartContent.contents && cartContent.contents.length ? cartContent.contents.map(content => {
-
-          const [value] = cartContent.prices.filter(price => (Number(price.content_id) ===  content.id))
           
-          return (<Card
+          <Card
             removeDisplayed
             onCartPage
             handleRemove={() => {
-              cartContext.handleRemoveItemToCart(content.id)
+              cartContext.handleRemoveItemToCart(2)
               history.go(0)
             }}
-            title={content.title}
-            description={content.desc}
-            image={content.url}
-            value={Number(value.price)}
-            rate={content.rate}
-            type={content.type}
-            category={content.category}
-            id={content.id}
-            />)}): (<strong>Você deve adicionar um conteúdo no carrinho para visualizá-los.</strong>)}
+            title={'Título'}
+            description={'Exercitation veniam cupidatat Lorem voluptate laborum eiusmod velit aliquip officia ea cillum consectetur velit. Sint duis tempor duis quis quis duis cupidatat. Id consectetur nostrud ut eu ad culpa fugiat irure cillum incididunt enim ipsum velit consequat. Amet esse eu excepteur excepteur nisi proident cupidatat nostrud nulla velit labore sint. Do eu sint aute aliqua adipisicing aute elit cillum exercitation nisi aliqua. Labore aliquip sunt cillum sint reprehenderit est cupidatat dolore consequat minim ut sunt.'}
+            image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+            value={Number(100)}
+            rate={4}
+            type={'Tipo'}
+            category={'Categoria'}
+            id={2}
+            />
+          <Card
+            removeDisplayed
+            onCartPage
+            handleRemove={() => {
+              cartContext.handleRemoveItemToCart(2)
+              history.go(0)
+            }}
+            title={'Título'}
+            description={'Exercitation veniam cupidatat Lorem voluptate laborum eiusmod velit aliquip officia ea cillum consectetur velit. Sint duis tempor duis quis quis duis cupidatat. Id consectetur nostrud ut eu ad culpa fugiat irure cillum incididunt enim ipsum velit consequat. Amet esse eu excepteur excepteur nisi proident cupidatat nostrud nulla velit labore sint. Do eu sint aute aliqua adipisicing aute elit cillum exercitation nisi aliqua. Labore aliquip sunt cillum sint reprehenderit est cupidatat dolore consequat minim ut sunt.'}
+            image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+            value={Number(100)}
+            rate={4}
+            type={'Tipo'}
+            category={'Categoria'}
+            id={2}
+            />
+          <Card
+            removeDisplayed
+            onCartPage
+            handleRemove={() => {
+              cartContext.handleRemoveItemToCart(2)
+              history.go(0)
+            }}
+            title={'Título'}
+            description={'Exercitation veniam cupidatat Lorem voluptate laborum eiusmod velit aliquip officia ea cillum consectetur velit. Sint duis tempor duis quis quis duis cupidatat. Id consectetur nostrud ut eu ad culpa fugiat irure cillum incididunt enim ipsum velit consequat. Amet esse eu excepteur excepteur nisi proident cupidatat nostrud nulla velit labore sint. Do eu sint aute aliqua adipisicing aute elit cillum exercitation nisi aliqua. Labore aliquip sunt cillum sint reprehenderit est cupidatat dolore consequat minim ut sunt.'}
+            image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+            value={Number(100)}
+            rate={4}
+            type={'Tipo'}
+            category={'Categoria'}
+            id={2}
+            />
         </main>
       </section>
-     {cartContent.contents.length && <Summary buttonsDisplayed />}
+     <Summary buttonsDisplayed />
     </CardContainer>
     <RelatedContent type="product" title={cartContent.contents && cartContent.contents.length ? "Conteúdos relacionados" : "Veja estes conteúdos"}/>
   </>

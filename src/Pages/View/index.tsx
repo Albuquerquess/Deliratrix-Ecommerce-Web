@@ -36,10 +36,12 @@ const View: React.FC = () => {
   async function getUniqueContentOnBackend(id: string) {
 
     const responseUniqueContent = await Api.get(INDEX_SHOW, {params: {id: id}})
+    console.log(responseUniqueContent.data.content.time)
     setContentData(responseUniqueContent.data)
   }
   async function getRelatedContentOnBackend(category: string | undefined, type: string | undefined) {
     const responseContentByCategory = await Api.get(INDEX_CATEGORY, {params: {category: category, type: type}})
+
     setContentDataByCategory(responseContentByCategory.data)
   }
 
@@ -54,39 +56,42 @@ const View: React.FC = () => {
   }, [contentData])
 
 
-  return <>{contentData && contentData.content ? <ViewContainer image={contentData.content.url}>
+  return <ViewContainer image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}>
   <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
 
   <nav>
-    <span>{contentData.content.type }  {'>'}  {contentData.content.category }  {'>'}  {contentData.content.title} </span>
+    <span>{ 'Tipo' }  {'>'}  { 'Categoria' }  {'>'}  { 'Título' } </span>
   </nav>
   <main id="view-main">
-    {contentData.content.id ? <>
+    <>
       <section>
       <div id="image"></div>
       <div id="options">
         <nav>
-          <h1>{contentData.content.title}</h1>
-          <span>Categoria: {contentData.content.category}</span>
+          <h1>{'Título'}</h1>
+          <span>Categoria: {'Categoria'}</span>
         </nav>
         <div id="select-options">
           <ol>
             <h2>Selecione uma opção:</h2>
-            {contentData.prices.map((price, index) => {
-              return <li key={index}>
-              <label htmlFor={String(price.id)} onClick={() => {
-                setCurrentPrice(price)
-                setItemClickOnInput(price.id)}
+
+              <li key={1}>
+              <label htmlFor={String(2)} onClick={() => {
+                setCurrentPrice({
+                  price: 100,
+                  label: 'Rótulo',
+                  id: 2})
+                setItemClickOnInput(2)}
                 }>
 
-                <div className={`radio ${itemClickOnInput === price.id && 'input-radio-clicked'}`} >1</div>
-                <input type="radio" name="price" id={price.label} value={price.price} />{price.label}</label>
+                <div className={`radio ${itemClickOnInput === 2 && 'input-radio-clicked'}`} >1</div>
+                <input type="radio" name="price" id={'2'} value={100} />{'Rótulo'}</label>
             </li>
-            })}
+
           </ol>
             <footer>
               <span id="current-price">{currentPrice?.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })|| 'Por favor, selecione uma opção'}</span>
-              <Button label="Adicionar ao carrinho" to="/carrinho" handleClicked={() => Context.handleAddItemToCart(contentData.content.id, Number(currentPrice?.id))} disabled={!currentPrice && true}/>
+              <Button label="Adicionar ao carrinho" to="/carrinho" handleClicked={() => Context.handleAddItemToCart(2, Number(currentPrice?.id))} disabled={!currentPrice && true}/>
               <img src={pix} alt="Pagamento via PIX" />
             </footer>
         </div>
@@ -94,17 +99,17 @@ const View: React.FC = () => {
     </section>
     <section>
        <h2>Descrição</h2>
-       <p id="desc">{contentData.content.desc}</p>
-       {contentData.content.time > 0 && (
-       <span id="duration">
-          Duração do conteúdo: <strong>{contentData.content.time} minutos.</strong>
-        </span>)}
+       <p id="desc">{'Deserunt do velit adipisicing pariatur sit ex sint ex irure. Aliquip excepteur elit enim veniam commodo aute. Voluptate consequat sit voluptate eu Lorem voluptate sint amet est commodo quis. Ad deserunt dolor nostrud labore et proident.'}</p>
        
-    </section></> : <Loading />}
+       <span id="duration">
+          Duração do conteúdo: <strong>{'5 minutos'} minutos.</strong>
+        </span>
+       
+    </section></> 
   </main>
 
   <Box title="Produtos relacionados">
-  {contentDataByCategory && contentDataByCategory.map((content) => {
+  {/* {contentDataByCategory && contentDataByCategory.map((content) => {
 
     if (content.id !== Number(id)) {
       return <Card
@@ -118,9 +123,59 @@ const View: React.FC = () => {
         id={content.id} />
     }
   }
-  )}
+  )} */}
+  <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
   </Box>
-</ViewContainer> : <h1>Não foi possivel carregar a página :/</h1>}</>;
+</ViewContainer>;
 }
 
 export default View;

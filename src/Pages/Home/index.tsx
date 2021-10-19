@@ -40,7 +40,37 @@ const Home: React.FC = () => {
     <SearchInput onlyMobile={true} value={search} setValue={setSearch} redirectTo={'/search'}/>
     <Header />
     <Box title="Serviços mais contratados">
-      {servicesData ? servicesData.map(service => {
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      {/* {servicesData ? servicesData.map(service => {
       return <Card 
         title={service.title}
         description={service.desc}
@@ -52,12 +82,42 @@ const Home: React.FC = () => {
         id={service.id}
         />}) 
           : 
-        <Loading />}    
+        <Loading />}     */}
       <CardButton label="Ver todos os produtos" to="/explorar/Produtos"/>
     </Box>
 
     <Box title="Produtos mais comprados">
-      {productsData ? productsData.map(product => {
+    <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      <Card 
+         title={'Título'}
+         description={'Id occaecat sit exercitation ea pariatur. Occaecat et nostrud duis cupidatat. Commodo duis deserunt deserunt cupidatat qui deserunt ad voluptate consectetur sint commodo laboris ad. Enim nisi commodo do ullamco. Est ut sint enim commodo pariatur fugiat duis in. Veniam Lorem sit veniam minim nostrud tempor ex tempor nisi nisi ad ipsum do.'}
+         image={'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BBFC_18_2019.svg/1200px-BBFC_18_2019.svg.png'}
+         value={100}
+         rate={4}
+         type="sexo"
+         category="Categoria"
+         id={123}
+      />
+      {/* {productsData ? productsData.map(product => {
         
       return <Card 
         title={product.title}
@@ -70,7 +130,7 @@ const Home: React.FC = () => {
         id={product.id}
         />}) 
           :
-        <p>Não foi possivel buscar as informações</p>}    
+        <p>Não foi possivel buscar as informações</p>}     */}
       <CardButton label="Ver todos os serviços" to="/explorar/Serviços"/>
     </Box>
     
